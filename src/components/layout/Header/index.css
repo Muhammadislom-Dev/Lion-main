@@ -1,6 +1,5 @@
 .header {
     padding: 40px 0;
-    background-color: dodgerblue;
 }
 
 .header__items-wrapper {
@@ -22,6 +21,7 @@
 
 .header__link {
     cursor: pointer;
+    font-size: 16px;
 }
 
 .header__btn {
@@ -34,13 +34,3 @@
     cursor: pointer;
 }
 
-@media (max-width:1280px) {
-  
-    .container{
-      width: 100%;
-    }
-
-    .header__items-wrapper{
-        justify-content: space-around;
-    }
-  }

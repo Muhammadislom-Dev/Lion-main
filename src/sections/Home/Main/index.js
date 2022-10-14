@@ -35,7 +35,7 @@ export default function HomeMain() {
     <div className='homemain'>
       <div className="container">
         <div className='homemain__slides'>
-          <SplideSlider options={splideOpts}>
+          <SplideSlider  options={splideOpts}>
             {homemain_slides.map((slide, i) => (
               <SplideSlide key={i}>
                 <div key={i} className='homemain__slide'>

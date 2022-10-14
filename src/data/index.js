@@ -6,13 +6,13 @@ export const nav_items = [
 ];
 
 export const homemain_slides = [
-  "/assets/images/demo-belt.webp",
-  "/assets/images/demo-belt.webp",
-  "/assets/images/demo-belt.webp",
-  "/assets/images/demo-belt.webp",
-  "/assets/images/demo-belt.webp",
-  "/assets/images/demo-belt.webp",
-  "/assets/images/demo-belt.webp",
+  "/assets/images/demo.webp",
+  "/assets/images/demo.webp",
+  "/assets/images/demo.webp",
+  "/assets/images/demo.webp",
+  "/assets/images/demo.webp",
+  "/assets/images/demo.webp",
+  "/assets/images/demo.webp",
 ];
 
 export const main_slides = [
@@ -36,27 +36,27 @@ export const main_slides = [
 
 export const homeproducts = [
   {
-    image_url: "/assets/images/demo-belt.webp",
+    image_url: "/assets/images/demo.webp",
     name: "Мужские ремни"
   },
   {
-    image_url: "/assets/images/demo-belt.webp",
+    image_url: "/assets/images/demo.webp",
     name: "Мужские ремни"
   },
   {
-    image_url: "/assets/images/demo-belt.webp",
+    image_url: "/assets/images/demo.webp",
     name: "Мужские ремни"
   },
   {
-    image_url: "/assets/images/demo-belt.webp",
+    image_url: "/assets/images/demo.webp",
     name: "Мужские ремни"
   },
   {
-    image_url: "/assets/images/demo-belt.webp",
+    image_url: "/assets/images/demo.webp",
     name: "Мужские ремни"
   },
   {
-    image_url: "/assets/images/demo-belt.webp",
+    image_url: "/assets/images/demo.webp",
     name: "Мужские ремни"
   }
 ];

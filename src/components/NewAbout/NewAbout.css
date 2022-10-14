@@ -1,0 +1,35 @@
+.new {
+  padding: 50px;
+}
+
+.new-home {
+  font-family: "Space Grotesk";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  color: #696969;
+  opacity: 0.85;
+  margin:0 25px;
+}
+
+
+.new-img {
+  width: 391px;
+  padding: 20px;
+}
+
+.new-name {
+  font-family: "Space Grotesk";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 38px;
+  line-height: 50px;
+  width: 350px;
+  margin: 0 30px;
+}
+
+.new-pic {
+  width: 637px;
+  margin-left: 170px;
+}

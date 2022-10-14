@@ -5,6 +5,10 @@
   padding-top: 100px;
 }
 
+.footer{
+  background-color:  #FED6A2;
+}
+
 .footer__items {
   display: flex;
   gap: 80px;
@@ -26,9 +30,9 @@
 .footer__text {
   font-size: 15px;
   font-weight: 400;
-  opacity: 0.5;
   line-height: 24px;
   margin-bottom: 30px;
+  color: #1C1C1C;
 }
 
 .footer__social-items {
@@ -50,6 +54,8 @@
   font-size: 20px;
   font-weight: 500;
   margin-bottom: 20px;
+  color: #1C1C1C;
+  font-family: 'Rubik';
 }
 
 .footer__item-links {
@@ -66,6 +72,7 @@
 .footer__item-link {
   transition: 0.3s;
   opacity: 0.5;
+  color: #1C1C1C;
 }
 
 .footer__item-link:not(.disactive):hover {
@@ -78,7 +85,8 @@
   padding: 33px;
   font-size: 18px;
   font-weight: 400;
-  background-color: var(--white-color);
+  /* background-color: var(--white-color); */
+  background-color: #fff;
   display: flex;
   justify-content: center;
   gap: 10px;

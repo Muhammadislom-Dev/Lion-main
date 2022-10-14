@@ -1,0 +1,163 @@
+.product {
+  padding: 50px 0;
+}
+
+.product-name {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 120px;
+  line-height: 91px;
+  width: 100%;
+  color: #fff;
+  margin-top: 80px;
+}
+
+.product-subtext {
+  font-family: "Space Grotesk";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 38px;
+  line-height: 48px;
+  color: #fff;
+  margin-top: 30px;
+  width: 270px;
+  border-bottom: 4px solid #FFFFFF;
+  margin-left: 100px;
+}
+
+.product-span{
+    display: flex;
+}
+
+.product-img {
+  width: 200px;
+  object-fit: contain;
+  margin: 15px;
+  margin-top: 40px;
+}
+
+.product-btn {
+  width: 240px;
+  height: 55px;
+  cursor: pointer;
+  background: #fcd4a1;
+  border-radius: 40px;
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 18px;
+  line-height: 24px;
+  color: #1c1c1c;
+  margin: 10px 0;
+}
+
+.product-image {
+  margin: 0 8px;
+}
+
+.product-button {
+  border: 1px solid #fcd4a1;
+  border-radius: 40px;
+  cursor: pointer;
+  width: 240px;
+  margin: 10px 0;
+  height: 55px;
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+  color: #fcd4a1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-item {
+  background: #ce713b;
+  width: 245px;
+  height: 430px;
+  border-radius: 8px;
+  margin-top: 45px;
+}
+
+.product-subname {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 32px;
+  line-height: 30px;
+  color: #fff;
+  width: 150px;
+  padding: 15px;
+}
+
+.product-cost {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 22px;
+  color: #fff;
+  padding: 0 15px;
+}
+
+.product-btns {
+  background: #ffffff;
+  border-radius: 1000px;
+  width: 185px;
+  height: 55px;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 22px;
+  text-align: center;
+  color: #2f2f2f;
+  margin: 25px 25px 0;
+}
+
+.product-pic {
+  width: 180px;
+  margin: 20px;
+  margin-top: 70px;
+  object-fit: contain;
+}
+
+.product-left {
+  margin: 25px;
+}
+
+.product-items {
+  background-color: #fff;
+  width: 230px;
+  height: 340px;
+  margin: 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.product-names {
+  font-family: "Space Grotesk";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 26px;
+  color: #1c1c1c;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.product-title {
+  display: flex;
+  margin-top: 60px;
+  border-top: 1px solid #8d8d8d;
+  transform: rotate(-0.06deg);
+}
+
+.product-right {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px 50px;
+}

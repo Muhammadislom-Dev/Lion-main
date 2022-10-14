@@ -4,7 +4,7 @@ import { Line } from 'subcomponents'
 export default function Home() {
   return (
     <div style={{position: "relative", zIndex: 5}}>
-      {/* <HomeMain /> */}
+      <HomeMain />
       <div className='relative'>
         <HomeProducts />
         <HomeAbout />

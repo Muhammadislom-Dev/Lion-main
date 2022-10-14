@@ -1,0 +1,70 @@
+.company-title {
+  display: flex;
+  margin: 15px;
+}
+
+.company-subname {
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  color: #f6eeec;
+  /* opacity: 0.6; */
+  margin: 25px 0;
+}
+
+span {
+  color: #f6eeec;
+}
+
+.company-about {
+  background: #262829;
+  border-radius: 20px;
+  width: 870px;
+  margin: 0 25px;
+  margin-left: 100px;
+  display: flex;
+  align-items: center;
+}
+
+.company-img {
+  padding: 20px;
+}
+
+.company-name {
+  font-family: "Space Grotesk";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 38px;
+  line-height: 50px;
+  color: #fff;
+  width: 250px;
+}
+
+.company-titles {
+  background: #262829;
+  border-radius: 20px;
+  width: 870px;
+  margin-left: 100px;
+}
+
+.company-text {
+  font-family: "Space Grotesk";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 26px;
+  color: #ffffff;
+  width: 550px;
+  margin: 15px auto;
+  padding: 10px;
+}
+
+.company-pic{
+    width: 100%;
+    padding-left: 100px;
+    padding-right: 50px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
