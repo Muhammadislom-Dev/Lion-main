@@ -1,0 +1,280 @@
+.about {
+  padding: 50px;
+}
+
+.about-list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+.about-item {
+  margin: 0 3px;
+}
+
+.about-link {
+  text-decoration: none;
+  font-family: "Space Grotesk";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: #696969;
+  opacity: 0.85;
+}
+
+.about-name {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 120px;
+  line-height: 110px;
+  color: #fff;
+  margin-top: 80px;
+  width: 400px;
+}
+
+.about-subname {
+  color: #fff;
+  font-family: "Space Grotesk";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 38px;
+  line-height: 48px;
+  margin-left: 350px;
+  margin-top: 50px;
+  border-bottom: 4px solid #fff;
+  width: 250px;
+}
+
+.about-links {
+  background: #fcd4a1;
+  border-radius: 40px;
+  font-family: "Mulish";
+  display: flex;
+  align-items: center;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 18px;
+  line-height: 24px;
+  color: #1c1c1c;
+  padding: 15px 40px;
+  width: 245px;
+}
+
+.about-logo {
+  margin: 0 15px;
+}
+
+.about-items {
+  background: #ce713b;
+  width: 245px;
+  height: 420px;
+  margin-top: 60px;
+  border-radius: 5px;
+}
+
+.about-subnames {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 32px;
+  line-height: 30px;
+  color: #fff;
+  width: 150px;
+  padding: 15px;
+}
+
+.about-cost {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 22px;
+  color: #fff;
+  padding: 5px 15px;
+}
+
+.about-img {
+  padding: 15px;
+}
+
+.about-title {
+  display: flex;
+  margin: 100px 0;
+  border-top: 1px solid #8d8d8d;
+  padding: 40px 0;
+}
+
+.about-text {
+  font-family: "Space Grotesk";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  width: 380px;
+  color: #fff;
+  margin: 15px 0;
+}
+
+.about-names {
+  font-family: "Space Grotesk";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 30px;
+  margin-top: 20px;
+}
+
+.about-button {
+  background: #fcd4a1;
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 16px;
+  line-height: 24px;
+  color: #000;
+  border-radius: 100px;
+  border: 2px solid #fcd4a1;
+  width: 170px;
+  height: 45px;
+  margin-top: 50px;
+  cursor: pointer;
+}
+
+.about-right {
+  margin-left: 100px;
+}
+
+.about__rights {
+  display: flex;
+}
+
+.about--text {
+  font-family: "Space Grotesk";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 38px;
+  line-height: 48px;
+  color: #fff;
+  padding-top: 100px;
+}
+
+.about-page {
+  width: 280px;
+  height: 370px;
+  border-radius: 166.5px;
+  background-color: #fff;
+  margin-left: 50px;
+  margin-top: 70px;
+}
+
+.about-image {
+  margin: 100px 30px;
+  transition: 0.9s;
+}
+
+.about-image:hover {
+  transform: scale(1.2);
+}
+
+.about-left {
+  border-right: 1px solid #8d8d8d;
+  padding-right: 25px;
+}
+
+.about-box {
+  display: flex;
+  margin-top: 55px;
+}
+
+.about--list:nth-child(2) {
+  margin: 0 70px;
+}
+
+.about--item {
+  margin: 15px 0;
+}
+
+.about-product {
+  display: flex;
+}
+
+.modal-input {
+  border: 1px solid #1c1c1c;
+  border-radius: 50px;
+  outline: none;
+  width: 370px;
+  padding: 15px 20px;
+  margin: 15px 0;
+  color: #000;
+}
+
+.modal-input::placeholder {
+  font-family: "Space Grotesk";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  text-transform: uppercase;
+  color: #1c1c1c;
+}
+
+.modal-btn {
+  background: #fed6a2;
+  border-radius: 50px;
+  border: none;
+  font-family: "Space Grotesk";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  text-transform: uppercase;
+  color: #1c1c1c;
+  cursor: pointer;
+  width: 370px;
+  height: 45px;
+  margin: 15px 0;
+}
+
+.modal-closes {
+  font-size: 45px;
+  color: red;
+  font-weight: bold;
+  line-height: 30px;
+  cursor: pointer;
+  margin: 5px 15px;
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+}
+
+.modal-page {
+  display: flex;
+}
+
+.modal-item {
+  background: #bca38e;
+  border-bottom-left-radius: 225px;
+  border-top-left-radius: 225px;
+  width: 300px;
+  height: 370px;
+  margin-top: -40px;
+}
+
+.modal-img {
+  margin: 90px 60px;
+}
+
+.modal-name {
+  font-family: "Space Grotesk";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 38px;
+  line-height: 48px;
+  color: #1c1c1c;
+  margin: 0 25px;
+}

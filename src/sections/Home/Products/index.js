@@ -28,9 +28,12 @@ export default function HomeProducts() {
         <h3 className="section__title homeproducts__title">Наши продукты</h3>
         <div className="homeproducts__wrapper">
           <SplideSlider>
-            {catalog.map((prd) => (
-              <SplideSlide>
-                <Link to="/product">
+            {catalog.map((prd,i) => (
+              <SplideSlide
+                key={i}
+                id={prd.id}
+              >
+                <Link id={prd.id} to={`/product=${prd.id}`} >
                   <div className="homeproducts__product">
                       <img
                         src={`https://lion.abba.uz/${prd.image}`}

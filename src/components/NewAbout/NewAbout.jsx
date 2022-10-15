@@ -1,8 +1,25 @@
 import React from "react";
 import "./NewAbout.css";
-import news from './new.png'
+import News from './new.png'
+import { useState } from "react";
+import { useEffect } from "react";
+import axios from "axios";
+import { useParams } from "react-router-dom";
 
 function NewAbout() {
+
+  
+  var { newId } = useParams();
+  const [news, setNew] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("https://lion.abba.uz/api/news")
+      .then((res) => setNew(res.data.find((e) => e.id == Number(newId))));
+  }, []);
+
+  console.log(news);
+
   return (
     <div className="new">
       <div className="container">
@@ -21,7 +38,7 @@ function NewAbout() {
           </div>
           <div className="company-items">
             <div className="company-about">
-              <img src={news} alt="" className="new-img" />
+              <img src={News} alt="" className="new-img" />
               <h2 className="new-name">собираясь купить ремень женский кожаный</h2>
             </div>
             <div className="company-titles">
@@ -39,7 +56,7 @@ function NewAbout() {
                 ipsum dolor sit amet, consectetur adipiscing elit. penatibus
                 ornare Lorem ipsum dolor sit amet, consectetur adipiscing elit.
               </p>
-              <img src={news} alt="" className="new-pic" />
+              <img src={News} alt="" className="new-pic" />
               <p style={{ paddingBottom: "50px" }} className="company-text">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                 Adipiscing penatibus ornare Lorem ipsum dolor sit amet,

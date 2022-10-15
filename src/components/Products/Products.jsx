@@ -5,6 +5,7 @@ import demo from "./demos.png";
 import { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
+import { Link, useParams } from "react-router-dom";
 
 function Products() {
   const [product, setProduct] = useState([]);
@@ -14,6 +15,8 @@ function Products() {
       .get("https://lion.abba.uz/api/products/")
       .then((res) => setProduct(res.data));
   }, []);
+
+  var { id } = useParams();
 
   console.log(product);
 
@@ -43,12 +46,16 @@ function Products() {
             </div>
           </div>
           <div className="product-right">
-            {product.map((evt, i) => (
-              <div className="product-items">
-                <img src={evt.image} alt="" className="product-pic" />
-                <p className="product-names">{evt.name_en}</p>
-              </div>
-            ))}
+            {product
+              .filter((e) => e.category === Number(id))
+              .map((evt, i) => (
+                <Link to={`/aboutId=${evt.id}`} >
+                  <div key={i} id={evt.id} className="product-items">
+                    <img src={evt.image} alt="" className="product-pic" />
+                    <p className="product-names">{evt.name_en}</p>
+                  </div>
+                </Link>
+              ))}
           </div>
         </div>
       </div>
