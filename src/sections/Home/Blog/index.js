@@ -12,7 +12,6 @@ import "./index.css";
 export default function HomeBlog() {
 
 
-  var { newId } = useParams();
   const [news, setNew] = useState([]);
 
   useEffect(() => {
@@ -32,7 +31,9 @@ export default function HomeBlog() {
             {news
             .map((prd, i) => (
               <SplideSlide id={prd.id} key={i}>
-                <Link to={`/blog=${prd.id}`}>
+                <Link 
+                  onClick={() => window.scrollTo({ top: 0 })}
+                  to={`/blog=${prd.id}`}>
                   <div key={i} id={prd.id} className="homeproducts__product blog__item">
                     <img
                       src={prd.image1}

@@ -143,7 +143,7 @@
 }
 
 .about-right {
-  margin-left: 100px;
+  margin-left: 20px;
 }
 
 .about__rights {
@@ -252,7 +252,7 @@
   padding: 25px;
 }
 
-.modal-page {
+.modal-pages {
   display: flex;
 }
 
@@ -277,4 +277,9 @@
   line-height: 48px;
   color: #1c1c1c;
   margin: 0 25px;
+}
+
+
+.about .about--pic{
+  width: 200px;
 }

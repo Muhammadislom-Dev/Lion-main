@@ -6,6 +6,10 @@ const Company = () => {
   return (
     <div className="company">
       <div className="container">
+        <p className="company-subnames">
+          <a href="/">Home</a>
+          > <span>About</span>
+        </p>
         <div className="company-title">
           <div className="company-item">
             <p className="company-subname">

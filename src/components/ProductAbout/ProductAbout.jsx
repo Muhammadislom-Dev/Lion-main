@@ -21,6 +21,94 @@ function ProductAbout() {
     setKorzinkaModal(!korzinkaModal);
   }
 
+  const [top, setTop] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("https://lion.abba.uz/api/products/")
+      .then((res) => setTop(res.data));
+  }, []);
+
+  //Bot meesage
+
+  const formBtn = (e)=>{
+ 
+    e.preventDefault();
+//  console.log(e)
+        if (e.target[0].value.length > 0
+             && e.target[1].value.length > 0 
+               ) {
+
+            let botMessege = `
+                 Salom, Yangi Xabar!😊%0A
+                 Ismi 👤: ${e.target[0].value}%0A
+                 Raqam ☎: ${e.target[1].value}%0A 
+                           
+            `;
+     
+            let url =`https://api.telegram.org/bot5407892565:AAGcvMnAPpnfj5a5zU2rG5sCYPifARtAmV0/sendMessage?chat_id=-1001549647557&text=${botMessege}`;
+        //   console.log(url)
+            async function fetchAsync(url) {
+              let response = await fetch(url);
+            //   console.log(response,"1-si")
+              let data = await response.json();
+            // console.log(data,"2-si")
+              return data;
+               
+            }
+            fetchAsync(url);
+
+            if(document.querySelector("#name").matches(".input-error")){
+                document.querySelector("#name").classList.remove("input-error")       
+                document.querySelector("#errorText").classList.remove("error-text1")
+                document.querySelector("#closestBtn").classList.remove("close1-btn")  
+                document.querySelector("#closestBtn1").classList.remove("closes-btn1") }
+            if(document.querySelector("#tel").matches(".tel-error")){
+                document.querySelector("#tel").classList.remove("tel-error")
+                 document.querySelector("#errorTel").classList.remove("error-tel1")
+                 document.querySelector("#closestBtn").classList.remove("modal-closest-btn")
+                 document.querySelector("#closestBtn").classList.remove("close1-btn")  
+                 document.querySelector("#closestBtn1").classList.remove("closes-btn1")
+            }
+           
+
+            e.target[0].value=""
+            
+       
+            e.target[1].value=""       
+            
+            // e.target[2].value=""  
+              
+            
+    } 
+    else{
+        if(e.target[0].value.length < 1 ){
+            
+            document.querySelector("#name").classList.add("input-error")
+           document.querySelector("#errorText").classList.add("error-text1")
+
+           document.querySelector("#closestBtn").classList.add("close1-btn")  
+           document.querySelector("#closestBtn1").classList.add("close2-btn")
+    
+        }
+        if(e.target[1].value.length < 1){
+            document.querySelector("#tel").classList.add("tel-error")
+            document.querySelector("#errorTel").classList.add("error-tel1")
+            document.querySelector("#closestBtn").classList.add("modal-closest-btn")
+            document.querySelector("#closestBtn").classList.add("close1-btn")  
+            document.querySelector("#closestBtn1").classList.add("close2-btn")
+        } 
+        // if(e.target[2].value.length < 1){
+        //     document.querySelector("#textarea").classList.add("error-info")
+        //     document.querySelector("#errorInfo").classList.add("error-info1")
+        //     document.querySelector("#closestBtn").classList.add("modal-closest-btn")
+        //     document.querySelector("#closestBtn").classList.add("close1-btn")  
+        //     document.querySelector("#closestBtn1").classList.add("close2-btn")
+        // }  
+    }
+  
+}
+
   return (
     <div className="about">
       <div className="container">
@@ -44,9 +132,13 @@ function ProductAbout() {
 
         <div className="about-title">
           <div className="about-left">
-            <a href="#" className="about-links">
+            <Link
+              onClick={() => window.scrollTo({ top: 0 })}
+              to="/"
+              className="about-links"
+            >
               <img src={mask} alt="" className="about-logo" /> Назад
-            </a>
+            </Link>
 
             <div className="about-items">
               <h3 className="about-subnames">Мужские ремни</h3>
@@ -61,24 +153,6 @@ function ProductAbout() {
               <div className="about-titles">
                 <h3 className="about-names">Мужские ремни</h3>
                 <p className="about-text">{product.description_en}</p>
-                <div className="about-box">
-                  <ul className="about--list">
-                    <li className="about--item">Articul:</li>
-                    <li className="about--item">category:</li>
-                    <li className="about--item">Country:</li>
-                    <li className="about--item">Weight:</li>
-                    <li className="about--item">class:</li>
-                    <li className="about--item">uniform:</li>
-                  </ul>
-                  <ul className="about--list">
-                    <li className="about--item">A13-b</li>
-                    <li className="about--item">Мужской</li>
-                    <li className="about--item">Uzbekistan</li>
-                    <li className="about--item">35sm</li>
-                    <li className="about--item">premium</li>
-                    <li className="about--item">classic</li>
-                  </ul>
-                </div>
                 <button
                   onClick={() => openKorzinkaModal()}
                   className="about-button"
@@ -91,19 +165,26 @@ function ProductAbout() {
               </div>
             </div>
 
-            {/* <p className="about--text">это твой</p>
+            <p className="about--text">это твой</p>
             <div className="about-product">
-              {product.map((evt, i) => (
+              {top.map((evt, i) => (
                 <Link to={`/aboutId=${evt.id}`}>
-                  <div key={i}
-                  style={{margin:"5px",}}
-                  id={evt.id} className="product-items about--items">
-                    <img src={evt.image} alt="" className="product-pic" />
+                  <div
+                    key={i}
+                    style={{ margin: "5px" }}
+                    id={evt.id}
+                    className="product-items about--items"
+                  >
+                    <img
+                      src={evt.image}
+                      alt=""
+                      className="product-pic about--pic"
+                    />
                     <p className="product-names">{evt.name_en}</p>
                   </div>
                 </Link>
               ))}
-            </div> */}
+            </div>
           </div>
         </div>
       </div>
@@ -112,28 +193,27 @@ function ProductAbout() {
         <button onClick={() => setKorzinkaModal()} className="modal-closes">
           &times;
         </button>
-        <div className="modal-page">
+        <div className="modal-pages">
           <div className="modal-title">
             <p className="modal-name">это твой</p>
-            <form action="" className="modal-form">
+            <form  id="myForm" onSubmit={formBtn}  className="modal-form">
               <input
-                type="text"
+                name="name" id="name" type="text"
                 placeholder="Имя"
                 required
                 className="modal-input"
               />
               <input
-                type="tell"
-                name="tell"
+                id="tel" type="number" name='tel'
                 placeholder="ТЕЛЕФОН НОМЕР"
                 required
                 className="modal-input"
               />
-              <button className="modal-btn">ОТПРАВИТЬ</button>
+              <button id="btnSubmit" type='submit' className="modal-btn">ОТПРАВИТЬ</button>
             </form>
           </div>
           <div className="modal-item">
-              <img src={product.image} alt="" className="modal-img" />
+            <img src={product.image} alt="" className="modal-img" />
           </div>
         </div>
       </Modal>

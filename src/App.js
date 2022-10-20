@@ -1,5 +1,6 @@
 import { Footer, Header } from 'components'
 import Company from 'components/Company'
+import Content from 'components/Content/Content'
 import NewAbout from 'components/NewAbout/NewAbout'
 import ProductAbout from 'components/ProductAbout/ProductAbout'
 import Products from 'components/Products/Products'
@@ -18,6 +19,8 @@ export default function App() {
           <Route path='/product=:id' element={<Products />} />
           <Route path='/blog=:id' element={<NewAbout />} />
           <Route path='/aboutId=:id' element={<ProductAbout />} />
+          {/* <Route path='/category' element={<Products />} /> */}
+          <Route path='/texno' element={<Content />} />
         </Routes>
       </div>
       <Footer />

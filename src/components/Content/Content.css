@@ -1,0 +1,75 @@
+.content {
+  padding: 30px;
+}
+
+.content-subname {
+  font-family: "Space Grotesk";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  display: flex;
+  align-items: center;
+  text-transform: capitalize;
+  color: #696969;
+  opacity: 0.85;
+}
+
+.content-span {
+  color: #fff;
+  font-size: 16px;
+}
+
+.content-name {
+  font-family: "Space Grotesk";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 38px;
+  line-height: 50px;
+  color: #fff;
+  padding: 60px;
+}
+
+.content-title {
+  background: #262829;
+  border-radius: 20px;
+  width: 858px;
+  margin-left: 150px;
+  margin-top: 60px;
+}
+
+.content-text {
+  font-family: "Space Grotesk";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 26px;
+  color: #fff;
+  width: 650px;
+  margin: 60px;
+}
+
+.content-list {
+  background: #262829;
+  border-radius: 20px;
+  width: 858px;
+  padding-bottom: 130px;
+  margin-left: 150px;
+}
+
+.content-number {
+  font-family: "Space Grotesk";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 200px;
+  line-height: 145px;
+  color: #fff;
+  opacity: 0.1;
+}
+
+
+.content-item{
+    display: flex;
+    align-items: center;
+    padding:10px 60px;
+}

@@ -18,6 +18,18 @@ span {
   color: #f6eeec;
 }
 
+.company-subnames{
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 15px;
+  display: flex;
+  align-items: center;
+  text-transform: capitalize;
+  color: #696969;
+}
+
 .company-about {
   background: #262829;
   border-radius: 20px;

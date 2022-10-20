@@ -5,7 +5,7 @@ import "./index.css";
 
 export default function About() {
   return (
-    <section className="homeabout">
+    <section id='company' className="homeabout">
       <div className="container">
         <div className='about__left'>
           <img
@@ -29,7 +29,9 @@ export default function About() {
           <p className='about__right-text'>
             Наша команда специализируется в продвижении предприятий легкой промышленности на зарубежные рынки.
           </p>
-          <Link to="/company" style={{margin:"15px 0"}} className="products__modal-btn product__modal-btn">
+          <Link 
+            onClick={() => window.scrollTo({ top: 0 })}
+            to="/company" style={{margin:"15px 0"}} className="products__modal-btn product__modal-btn">
             <span className="products__modal-btn-icon">
               <BsArrowRight />
             </span>

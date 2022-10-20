@@ -139,3 +139,31 @@ button.splide__pagination__page.is-active {
   transition: .5s;
 }
 
+.modal-page{
+  width: 400px;
+  border-radius: 50px;
+  height: 500px;
+}
+
+.video-react.video-react-fluid, .video-react.video-react-16-9, .video-react.video-react-4-3{
+  height: 100%;
+  width: 100%;
+}
+
+.modal-splide{
+  display: flex;
+  width: 400px;
+}
+
+ .modall .splide__arrow--next{
+  right: 0.5em;
+  left: 430px;
+}
+
+.modall .splide__arrow--prev{
+  left: -60px;
+}
+
+.modall .splide__pagination{
+  display: none;
+}

@@ -17,6 +17,8 @@
 .new-img {
   width: 391px;
   padding: 20px;
+  height: 234px;
+  border-radius: 117px;
 }
 
 .new-name {

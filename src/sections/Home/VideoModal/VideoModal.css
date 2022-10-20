@@ -1,0 +1,39 @@
+.modalContainerr {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0%;
+    right: 0;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(18px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modall .modall {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 2rem;
+    transition: all 0.4s ease;
+  }
+  
+  .modal_contentt {
+    height: 100%;
+    background: #ffffff;
+    border-radius: 5px;
+  }
+  .modalContainerr.showw {
+    visibility: visible;
+    transition: all 0.2s ease !important;
+  }
+  
+  .modalContainerr.showw .modall {
+    opacity: 1;
+    animation-name: fadeon;
+    animation-iteration-count: 1;
+    animation-duration: 0.5s;
+    display: block;
+    height: 72.5%;
+  }
+  

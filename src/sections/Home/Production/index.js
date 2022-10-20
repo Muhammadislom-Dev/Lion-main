@@ -1,11 +1,12 @@
 import React from "react";
 import { BsArrowRight } from "react-icons/bs";
+import { Link } from "react-router-dom";
 import { PinkBg } from "subcomponents";
 import "./index.css";
 
 export default function HomeProduction() {
   return (
-    <section className="homeproduction">
+    <section id="texno" className="homeproduction">
       <div className="container">
         <div className="homeproduction__left">
           <h2 className="homeproduction__left-title section__title">
@@ -18,12 +19,14 @@ export default function HomeProduction() {
             consectetur adipiscing elit. penatibus ornare Lorem ipsum dolor sit
             amet, consectetur adipiscing elit.
           </p>
-          <button style={{margin:"15px 0"}} className="products__modal-btn product__modal-btn">
+          <Link 
+            onClick={() => window.scrollTo({ top: 0 })}
+            to="/texno" style={{margin:"15px 0"}} className="products__modal-btn product__modal-btn">
             <span className="products__modal-btn-icon">
               <BsArrowRight />
             </span>
             <span className="products__modal-btn-text">Перейти в каталог</span>
-          </button>
+          </Link>
         </div>
         <div className="homeproduction__right">
           <img

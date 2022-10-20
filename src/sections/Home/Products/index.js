@@ -10,8 +10,6 @@ import { PinkBg } from "subcomponents";
 import "./index.css";
 
 export default function HomeProducts() {
-
-  
   const [catalog, setCatalog] = useState([]);
 
   useEffect(() => {
@@ -23,22 +21,25 @@ export default function HomeProducts() {
   console.log(catalog);
 
   return (
-    <section className="homeproducts">
+    <section id="category" className="homeproducts">
       <div className="container">
         <h3 className="section__title homeproducts__title">Наши продукты</h3>
         <div className="homeproducts__wrapper">
           <SplideSlider>
-            {catalog.map((prd,i) => (
-              <SplideSlide
-                key={i}
-                id={prd.id}
-              >
-                <Link id={prd.id} to={`/product=${prd.id}`} >
+            {catalog.map((prd, i) => (
+              <SplideSlide key={i} id={prd.id}>
+                <Link
+                  onClick={() => window.scrollTo({ top: 0 })}
+                  id={prd.id}
+                  to={`/product=${prd.id}`}
+                >
                   <div className="homeproducts__product">
+                    <div className="products__title">
                       <img
                         src={`https://lion.abba.uz/${prd.image}`}
                         className="homeproducts__product-img"
                       />
+                    </div>
                     <p className="homeproducts__product-name">{prd.name_en}</p>
                   </div>
                 </Link>

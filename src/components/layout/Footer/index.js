@@ -4,6 +4,7 @@ import { footer_links } from 'data';
 import "./index.css"
 import { Link, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
+import logo from './Vector (50).png'
 
 export default function Footer() {
   const location = useLocation();
@@ -31,13 +32,13 @@ export default function Footer() {
 
   return (
     <>
-      <div className='placeholder' />
+      <div  className='placeholder' />
       <footer className='footer'>
         <div className='footer__top' style={notHomePage ? { background: "var(--pink-text)", color: "#136A61" } : {}}>
           <div className="container footer__items">
             <div className='footer__item'>
               <Link to="/">
-                <img src={`/assets/images/logo.png`} alt="Lion Logo" className='footer__logo' />
+                <img src={logo} alt="Lion Logo" className='footer__logo' />
               </Link>
               <p className='footer__text' style={notHomePage ? { opacity: 1 } : {}}>
                 Quo is the most easier way for transaction

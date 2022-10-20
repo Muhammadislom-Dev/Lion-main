@@ -76,19 +76,19 @@ export const footer_links =  [
     links: [
       {
         name: "About",
-        link: "#"
+        link: "#compnay"
       },
       {
         name: "Products",
-        link: "#"
+        link: "#category"
       },
       {
         name: "Contact",
-        link: "#"
+        link: "#contact"
       },
       {
         name: "Blog",
-        link: "#"
+        link: "#blog"
       }
     ]
   },

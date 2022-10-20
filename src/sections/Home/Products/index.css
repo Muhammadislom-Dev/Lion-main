@@ -3,6 +3,17 @@
 }
 
 
+.products__title{
+  background-color: #fff;
+  height: 75%;
+  width: 85%;
+  margin: 0 10px;
+  border-radius: 9999px;
+  transition: .3s;
+  display: flex;
+  justify-content: center;
+}
+
 .homeproducts__product {
   height: 500px;
   margin: auto;
@@ -10,16 +21,16 @@
   cursor: pointer;
 }
 
-.homeproducts__product:hover .homeproducts__product-img {
+.homeproducts__product:hover .products__title {
   border-top-right-radius: 0px;
 }
 
 .homeproducts__product-img {
   width: 70%;
-  height: 80%;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 9999px;
   transition: .3s;
+  /* margin-top: 90px; */
 }
 
 .homeproducts__product-name {
