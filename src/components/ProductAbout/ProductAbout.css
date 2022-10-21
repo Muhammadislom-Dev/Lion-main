@@ -1,11 +1,27 @@
 .about {
   padding: 50px;
+  position: relative;
+}
+
+.about-splide{
+  display: flex;
+  align-items: center;
 }
 
 .about-list {
   list-style: none;
   display: flex;
   align-items: center;
+}
+
+.about .splide__arrow--next{
+  left: 15%;
+  top: 110%;
+}
+
+.about .splide__arrow--prev{
+  left: 0%;
+  top: 110%;
 }
 
 .about-item {
@@ -27,7 +43,7 @@
   font-family: "Mulish";
   font-style: normal;
   font-weight: 700;
-  font-size: 120px;
+  font-size: 90px;
   line-height: 110px;
   color: #fff;
   margin-top: 80px;
@@ -198,6 +214,7 @@
 
 .about-product {
   display: flex;
+  overflow: hidden;
 }
 
 .modal-input {
@@ -279,7 +296,31 @@
   margin: 0 25px;
 }
 
-
-.about .about--pic{
+.about .about--pic {
   width: 200px;
+}
+
+.about--page {
+  display: flex;
+}
+
+.about--item {
+  margin: 5px 0;
+}
+
+.about--title {
+  display: flex;
+}
+
+.about--title > p {
+  position: absolute;
+  top: 19%;
+  left: 55%;
+  border-bottom: 4px solid #fff;
+  width: 250px;
+  font-family: "Space Grotesk";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 38px;
+  line-height: 48px;
 }

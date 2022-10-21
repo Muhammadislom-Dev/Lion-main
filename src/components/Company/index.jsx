@@ -1,8 +1,13 @@
 import React from "react";
 import "./index.css";
 import company from "./company.png";
+import { t } from "i18next";
+import { useTranslation } from "react-i18next";
 
 const Company = () => {
+
+  const {t} = useTranslation()
+
   return (
     <div className="company">
       <div className="container">
@@ -13,42 +18,27 @@ const Company = () => {
         <div className="company-title">
           <div className="company-item">
             <p className="company-subname">
-              Products <br /> <span style={{color:"#F6EEEC"}}>125</span>{" "}
+               {t('i_g1')}
             </p>
             <p className="company-subname">
-              Collegue <br /> <span>736 ta</span>{" "}
+               {t('i_g2')}
             </p>
             <p className="company-subname">
-              Director <br /> <span>Mirali Yo'ldoshev</span>{" "}
+              {t('i_g3')}
             </p>
           </div>
           <div className="company-items">
             <div className="company-about">
               <img src={company} alt="" className="company-img" />
-              <h2 className="company-name">O наши компани</h2>
+              <h2 className="company-name">{t('about_us_name')}</h2>
             </div>
             <div className="company-titles">
               <p style={{paddingTop:"40px"}} className="company-text">
-                World Textile Marketing Agency основан в 2019 году молодыми
-                специалистами в области маркетинга, текстильной индустрии,
-                веб-программирования, организации мероприятий, дизайна одежды и
-                полиграфии. Наша команда специализируется в продвижении
-                предприятий легкой промышленности на зарубежные рынки.
-              </p>
-              <p className="company-text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Adipiscing penatibus ornare Lorem ipsum dolor sit amet,
-                consectetur adipiscing elit. Adipiscing penatibus ornare Lorem
-                ipsum dolor sit amet, consectetur adipiscing elit. penatibus
-                ornare Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                 {t('about_us_top')}
               </p>
               <img src={company} alt="" className="company-pic" />
               <p style={{paddingBottom:"50px"}} className="company-text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Adipiscing penatibus ornare Lorem ipsum dolor sit amet,
-                consectetur adipiscing elit. Adipiscing penatibus ornare Lorem
-                ipsum dolor sit amet, consectetur adipiscing elit. penatibus
-                ornare Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                {t('about_us_down')}
               </p>
             </div>
           </div>

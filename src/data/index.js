@@ -1,3 +1,4 @@
+
 export const nav_items = [
   "Товары",
   "О нас",
@@ -71,6 +72,7 @@ export const partners = [
 ]
 
 export const footer_links =  [
+
   {
     title: "Company",
     links: [

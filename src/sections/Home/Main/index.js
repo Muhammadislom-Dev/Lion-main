@@ -11,6 +11,8 @@ import { Player } from "video-react";
 import VideoModal from "../VideoModal/VideoModal";
 import { Splide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
+import { t } from "i18next";
+import { useTranslation } from "react-i18next";
 
 const splideOpts = {
   rewind: true,
@@ -36,7 +38,7 @@ const slideOptsMain = {
   arrows: false,
 };
 
-export default function HomeMain() {
+export default function HomeMain({english, russian, uzbek}) {
   const [slider, setSlider] = useState([]);
 
   useEffect(() => {
@@ -55,12 +57,14 @@ export default function HomeMain() {
 
   console.log(video);
 
-  const [isOpen, setOpen] = useState(false);
+  // const [isOpen, setOpen] = useState(false);
 
   const [korzinkaModal, setKorzinkaModal] = useState(false);
   function openKorzinkaModal() {
     setKorzinkaModal(!korzinkaModal);
   }
+
+  const {t} = useTranslation()
 
   return (
     <div className="homemain">
@@ -105,7 +109,7 @@ export default function HomeMain() {
                 <BsArrowRight />
               </span>
               <span className="products__modal-btn-text">
-                Перейти в каталог
+                {t("p_1_button")}
               </span>
             </a>
           </div>
@@ -123,7 +127,9 @@ export default function HomeMain() {
                       alt="Lion Slide"
                       className="homemain__main-slide-img"
                     />
-                    <p className="homemain__main-slide-text">{slide.name_en}</p>
+                    {english && <p className="homemain__main-slide-text">{slide.name_en}</p>}
+                    {russian && <p className="homemain__main-slide-text">{slide.name_ru}</p>}
+                    {uzbek && <p className="homemain__main-slide-text">{slide.name_uz}</p>}
                   </div>
                 </SplideSlide>
               ))}

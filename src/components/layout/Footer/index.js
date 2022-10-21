@@ -5,6 +5,7 @@ import "./index.css"
 import { Link, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import logo from './Vector (50).png'
+import { useTranslation } from 'react-i18next';
 
 export default function Footer() {
   const location = useLocation();
@@ -30,6 +31,8 @@ export default function Footer() {
     }
   }, []);
 
+  const {t} = useTranslation()
+
   return (
     <>
       <div  className='placeholder' />
@@ -41,9 +44,7 @@ export default function Footer() {
                 <img src={logo} alt="Lion Logo" className='footer__logo' />
               </Link>
               <p className='footer__text' style={notHomePage ? { opacity: 1 } : {}}>
-                Quo is the most easier way for transaction
-                with your friends and family, No matter where are you.
-                An exceptional way for make your life one step easier.
+                {t('slogan')}
               </p>
               <div className='footer__social-items'>
                 <a href="https://www.instagram.com" target="_blank" rel="noreferrer" className='footer__social-item'>
@@ -51,20 +52,37 @@ export default function Footer() {
                 </a>
               </div>
             </div>
-            {footer_links.map((link, i) => (
-              <div key={i} className='footer__item'>
-                <h4 className='footer__item-title'>{link.title}</h4>
+              <div className='footer__item'>
+                <h4 className='footer__item-title'>{t('f_name1')}</h4>
                 <div className='footer__item-links'>
-                  {link.links.map((linkItem, idx) => (
-                    <p className='footer__item-link' key={idx}>{linkItem.name}</p>
-                  ))}
+                   <a className='footer-link' href='#'>{t('f1')}</a>
+                   <a className='footer-link' href='#'>{t('f3')}</a>
+                   <a className='footer-link' href='#'>{t('f3')}</a>
+                   <a className='footer-link' href='#'>{t('f4')}</a>
                 </div>
               </div>
-            ))}
+              <div className='footer__item'>
+                <h4 className='footer__item-title'>{t('f_name2')}</h4>
+                <div className='footer__item-links'>
+                   <a className='footer-link' href='#'>{t('f5')}</a>
+                   <a className='footer-link' href='#'>{t('f6')}</a>
+                   <a className='footer-link' href='#'>{t('f7')}</a>
+                   <a className='footer-link' href='#'>{t('f8')}</a>
+                </div>
+              </div>
+              <div className='footer__item'>
+                <h4 className='footer__item-title'>{t('f_name3')}</h4>
+                <div className='footer__item-links'>
+                   <a className='footer-link' href='tel:+998995595353'>{t('f9')}</a>
+                   <a className='footer-link' href='tel:+998946776769'>{t('f10')}</a>
+                   <a className='footer-link' href='#'>{t('f11')}</a>
+                   <a className='footer-link' href='#'>{t('f12')}</a>
+                </div>
+              </div>
           </div>
         </div>
         <div className='footer__copyright'>
-          <p className='footer__copyright-text'>Lion <span>Abba Media</span>, <span>Abba Coding</span></p>
+          <p className='footer__copyright-text'>{t('f_under1')} <span>{t('f_under2')}</span>, <span>{t('f_under1')}</span></p>
         </div>
       </footer>
     </>

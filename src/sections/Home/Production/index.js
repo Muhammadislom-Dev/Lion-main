@@ -1,23 +1,24 @@
+import { t } from "i18next";
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { BsArrowRight } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { PinkBg } from "subcomponents";
 import "./index.css";
 
 export default function HomeProduction() {
+
+  const {t} = useTranslation()
+
   return (
     <section id="texno" className="homeproduction">
       <div className="container">
         <div className="homeproduction__left">
           <h2 className="homeproduction__left-title section__title">
-            Bizdagi Kamar ishlab chiqarish texnalogiyasi
+              {t('p_5_h1')}
           </h2>
           <p className="homeproduction__left-text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Adipiscing
-            penatibus ornare Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit. Adipiscing penatibus ornare Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit. penatibus ornare Lorem ipsum dolor sit
-            amet, consectetur adipiscing elit.
+             {t('factory')}
           </p>
           <Link 
             onClick={() => window.scrollTo({ top: 0 })}
@@ -25,7 +26,7 @@ export default function HomeProduction() {
             <span className="products__modal-btn-icon">
               <BsArrowRight />
             </span>
-            <span className="products__modal-btn-text">Перейти в каталог</span>
+            <span className="products__modal-btn-text">{t("p_1_button")}</span>
           </Link>
         </div>
         <div className="homeproduction__right">

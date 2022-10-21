@@ -2,14 +2,16 @@ import { SplideSlide } from "@splidejs/react-splide";
 import axios from "axios";
 import { SplideSlider } from "components";
 import { homeproducts } from "data";
+import { t } from "i18next";
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { Link, useParams } from "react-router-dom";
 import { PinkBg } from "subcomponents";
 import "./index.css";
 
-export default function HomeBlog() {
+export default function HomeBlog({english, uzbek, russian}) {
 
 
   const [news, setNew] = useState([]);
@@ -20,12 +22,12 @@ export default function HomeBlog() {
       .then((res) => setNew(res.data));
   }, []);
 
-  console.log(news);
+  const {t} = useTranslation()
 
   return (
     <section className="homeblog">
       <div className="container">
-        <h2 className="section__title homeblog__title">Новости Лиона</h2>
+        <h2 className="section__title homeblog__title">{t('p_4_h1')}</h2>
         <div className="homeproducts__wrapper">
           <SplideSlider>
             {news
@@ -37,10 +39,11 @@ export default function HomeBlog() {
                   <div key={i} id={prd.id} className="homeproducts__product blog__item">
                     <img
                       src={prd.image1}
-                      // alt={prd.name}
                       className="homeproducts__product-img blog__item-img"
                     />
-                    <p className="homeproducts__product-name">{prd.name_en}</p>
+                    {english && <p className="homeproducts__product-name">{prd.name_en}</p>}
+                    {russian && <p className="homeproducts__product-name">{prd.name_ru}</p>}
+                    {uzbek && <p className="homeproducts__product-name">{prd.name_uz}</p>}
                   </div>
                 </Link>
               </SplideSlide>

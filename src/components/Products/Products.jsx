@@ -6,8 +6,9 @@ import { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
 import { Link, NavLink, useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
-function Products() {
+function Products({ uzbek, english, russian }) {
   const [product, setProduct] = useState([]);
 
   useEffect(() => {
@@ -26,51 +27,50 @@ function Products() {
       .then((res) => setCatalog(res.data));
   }, []);
 
-
   let activeStyle = {
     backgroundColor: "#fcd4a1",
-    color: "#000"
+    color: "#000",
   };
 
   let activeClassName = "underline";
 
+  const { t } = useTranslation();
 
   return (
     <div className="product">
       <div className="container">
         <p className="new-home">
-          <a href="/">Home</a> > <span className="new-span">Products</span>
+          <a href="/">{t("cat2_h6")}</a> >{" "}
+          <span className="new-span">{t("cat2_h62")}</span>
         </p>
         <h2 className="product-name">
-          Наши{" "}
+          {t("cat2_h1")}
           <span className="product-span">
-            продукты <p className="product-subtext">один твой</p>{" "}
+            <p className="product-subtext">{t("cat2_h2")}</p>{" "}
           </span>{" "}
         </h2>
         <div className="product-title">
           <div className="product-left">
-            <button className="product-btn">Мужские ремни</button>
             {catalog.map((evt, i) => (
-              <NavLink 
-                  key={i}
-                  id={evt.id}
-                  to={`/product=${evt.id}`}
-                  activeClassName="product-button"
-                  className="product-buttons"
-                  style={({isActive}) => isActive ? activeStyle : undefined}
-                  >
-                   {evt.name_en}
+              <NavLink
+                key={i}
+                id={evt.id}
+                to={`/product=${evt.id}`}
+                activeClassName="product-button"
+                className="product-buttons"
+                style={({ isActive }) => (isActive ? activeStyle : undefined)}
+              >
+                {english && <p>{evt.name_en}</p>}
+                {russian && <p>{evt.name_ru}</p>}
+                {uzbek && <p>{evt.name_uz}</p>}
                 <img src={mask} alt="" className="product-image" />
               </NavLink>
             ))}
-            {/* <button className="product-button">
-              Женские ремни <img src={mask} alt="" className="product-image" />{" "}
-            </button> */}
             <div className="product-item">
               <h3 className="product-subname">Мужские ремни</h3>
               <p className="product-cost">от — $55.00</p>
               <img src={demo} alt="" className="product-img" />
-              <button className="product-btns">Подробный</button>
+              <button className="product-btns">{t("cat2_btn2")}</button>
             </div>
           </div>
           <div className="product-right">
@@ -80,10 +80,21 @@ function Products() {
                 <Link
                   onClick={() => window.scrollTo({ top: 0 })}
                   to={`/aboutId=${evt.id}`}
+                  className="product-link"
                 >
                   <div key={i} id={evt.id} className="product-items">
-                    <img src={evt.image} alt="" className="product-pic" />
-                    <p className="product-names">{evt.name_en}</p>
+                    <div className="product--items">
+                       <img src={evt.image} alt="" className="product-pic" />
+                    </div>
+                    {english && <p className="product-names">{evt.name_en}</p>}
+                    {russian && <p className="product-names">{evt.name_ru}</p>}
+                    {uzbek && <p className="product-names">{evt.name_uz}</p>}
+
+
+                    {english && <p className="product--names">{evt.name_en}</p>}
+                    {russian && <p className="product--names">{evt.name_ru}</p>}
+                    {uzbek && <p className="product--names">{evt.name_uz}</p>}
+                    <Link to={`/aboutId=${evt.id}`} className="products-link">Купи сейчас</Link>
                   </div>
                 </Link>
               ))}

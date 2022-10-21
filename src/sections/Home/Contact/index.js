@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import "./index.css";
 
 export default function Contact() {
@@ -79,17 +80,19 @@ export default function Contact() {
     }
   };
 
+  const { t } = useTranslation();
+
   return (
     <section id="contact" className="contact">
       <div className="container">
         <div className="contact__left">
           <h2 className="contact__left-title section__title">
-            Eсть какие нибудь вопросы?
+          {t('p_7_h1')}
           </h2>
           <form id="myForm" onSubmit={formBtn}  className="contact__form">
             <input
               name="name" id="name" type="text"
-              placeholder="Имя"
+              placeholder={t('name')}
               minLength={2}
               required
               maxLength={1000}
@@ -97,11 +100,11 @@ export default function Contact() {
             />
             <input
               id="tel" type="number" name='tel'
-              placeholder="ТЕЛЕФОН НОМЕР"
+              placeholder={t('phone')}
               required
               className="contact__form-input"
             />
-            <button className="contact__form-btn">ОТПРАВИТЬ</button>
+            <button className="contact__form-btn">{t('send')}</button>
           </form>
         </div>
         <div className="contact__right">
