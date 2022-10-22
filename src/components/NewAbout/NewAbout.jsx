@@ -7,6 +7,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import { t } from "i18next";
 import { useTranslation } from "react-i18next";
+import { HomeBlog } from "sections";
 
 function NewAbout({ uzbek, russian, english }) {
   const [news, setNew] = useState([]);
@@ -24,14 +25,17 @@ function NewAbout({ uzbek, russian, english }) {
     <div className="new">
       <div className="container">
         <p className="new-home">
-          <a href="/">Home</a> > <span className="new-span">News</span>
+          <a href="/">{t("cat2_h6")}</a> > 
+          {english && <span className="new-span">News</span>}
+          {russian && <span className="new-span">Новости</span>}
+          {uzbek && <span className="new-span">Yangiliklar</span>}
         </p>
         <div className="company-title">
           <div className="company-item">
             <p className="company-subname">
               19:31 <br /> <span style={{ color: "#F6EEEC" }}>04/09/2022</span>{" "}
             </p>
-            {/* <p className="company-subname">{t("news_page_autgor")}</p> */}
+            <p className="company-subname">{t('i_g3')}</p>
           </div>
           <div className="company-items">
             <div className="company-about">
@@ -53,6 +57,8 @@ function NewAbout({ uzbek, russian, english }) {
           </div>
         </div>
       </div>
+
+      <HomeBlog />
     </div>
   );
 }

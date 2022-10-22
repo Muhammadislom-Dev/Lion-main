@@ -8,6 +8,7 @@ import "./index.css";
 import { useState } from "react";
 import axios from "axios";
 import { Player } from "video-react";
+import Iframe from "react-iframe";
 import VideoModal from "../VideoModal/VideoModal";
 import { Splide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
@@ -38,7 +39,7 @@ const slideOptsMain = {
   arrows: false,
 };
 
-export default function HomeMain({english, russian, uzbek}) {
+export default function HomeMain({ english, russian, uzbek }) {
   const [slider, setSlider] = useState([]);
 
   useEffect(() => {
@@ -64,21 +65,29 @@ export default function HomeMain({english, russian, uzbek}) {
     setKorzinkaModal(!korzinkaModal);
   }
 
-  const {t} = useTranslation()
+  const { t } = useTranslation();
+
+  const [slider_reklama, setSlider_reklama] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("https://lion.abba.uz/api/slider_reklama/")
+      .then((res) => setSlider_reklama(res.data));
+  }, []);
 
   return (
     <div className="homemain">
       <div className="container">
         <div className="homemain__slides">
           <SplideSlider options={splideOpts}>
-            {homemain_slides.map((slide, i) => (
+            {video.map((slide, i) => (
               <SplideSlide key={i}>
                 <button
                   onClick={() => openKorzinkaModal(true)}
                   className="homemain__slide"
                 >
                   <img
-                    src={slide}
+                    src={slide.image}
                     alt="Lion Slide"
                     className="homemain__slide-img"
                   />
@@ -93,14 +102,16 @@ export default function HomeMain({english, russian, uzbek}) {
         </div>
         <div className="homemain__main">
           <div className="homemain__content">
-            <div>
-              <h1 className="homemain__title">
-                ПРОИЗВОДСТВО ременей в Узбекистане
-              </h1>
-              <p className="homemain__text">
-                Оптовые цены и оптовые объёмы Большой ассортимент
-              </p>
-            </div>
+            {slider_reklama.map((evt, i) => (
+              <div>
+                {english && <h1 className="homemain__title">{evt.name_en}</h1>}
+                {russian && <h1 className="homemain__title">{evt.name_ru}</h1>}
+                {uzbek && <h1 className="homemain__title">{evt.name_uz}</h1>}
+                {english && <p className="homemain__text">{evt.description_en}</p>}
+                {russian && <p className="homemain__text">{evt.description_ru}</p>}
+                {uzbek && <p className="homemain__text">{evt.description_uz}</p>}
+              </div>
+            ))}
             <a
               href="#category"
               className="products__modal-btn product__modal-btn"
@@ -127,9 +138,21 @@ export default function HomeMain({english, russian, uzbek}) {
                       alt="Lion Slide"
                       className="homemain__main-slide-img"
                     />
-                    {english && <p className="homemain__main-slide-text">{slide.name_en}</p>}
-                    {russian && <p className="homemain__main-slide-text">{slide.name_ru}</p>}
-                    {uzbek && <p className="homemain__main-slide-text">{slide.name_uz}</p>}
+                    {english && (
+                      <p className="homemain__main-slide-text">
+                        {slide.name_en}
+                      </p>
+                    )}
+                    {russian && (
+                      <p className="homemain__main-slide-text">
+                        {slide.name_ru}
+                      </p>
+                    )}
+                    {uzbek && (
+                      <p className="homemain__main-slide-text">
+                        {slide.name_uz}
+                      </p>
+                    )}
                   </div>
                 </SplideSlide>
               ))}
@@ -145,16 +168,20 @@ export default function HomeMain({english, russian, uzbek}) {
         </button>
 
         <div className="modal-splide">
-          <Splide
-            options={ { rewind: true } }
-            aria-label="React Splide Example"
-          >
+          <Splide options={{ rewind: true }} aria-label="React Splide Example">
             {video.map((slide, i) => (
-              <SplideSlide  key={i}>
+              <SplideSlide key={i}>
                 <div style={{ borderRadius: "50px" }} className="modal-page">
-                  <Player style={{ borderRadius: "50px" }}>
-                    <source style={{ borderRadius: "50px" }} src={slide.video} />
-                  </Player>
+                  <Iframe
+                    url={slide.video}
+                    width="100%"
+                    height="100%"
+                    id=""
+                    autoPlay={true}
+                    className=""
+                    display="block"
+                    position="relative"
+                  />
                 </div>
               </SplideSlide>
             ))}

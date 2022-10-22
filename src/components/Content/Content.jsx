@@ -9,7 +9,7 @@ function Content() {
     <div className="content">
       <div className="container">
         <p className="content-subname">
-          <a href="/">Home</a> >{" "}
+          <a href="/">{t("cat2_h6")}</a> >{" "}
           <span className="content-span">{t("factory_h6")}</span>
         </p>
         <div className="content-title">

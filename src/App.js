@@ -13,6 +13,7 @@ import { useTranslation } from "react-i18next";
 import { Route, Routes } from "react-router-dom";
 
 export default function App() {
+  
   const { t, i18n } = useTranslation();
 
   const [english, setEnglish] = useState(true);
@@ -70,13 +71,22 @@ export default function App() {
           change1={change1}
           change2={change2}
           change3={change3}
+          english={english}
+          russian={russian}
+          uzbek={uzbek}
         />
         <Routes>
-          <Route path="/" element={<Home 
+          <Route
+            path="/"
+            element={
+              <Home
                 langTitle={langTitle}
                 english={english}
                 russian={russian}
-                uzbek={uzbek} />} />
+                uzbek={uzbek}
+              />
+            }
+          />
           <Route path="/company" element={<Company />} />
           <Route
             path="/product=:id"

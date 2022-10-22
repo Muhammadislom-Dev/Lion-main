@@ -1,0 +1,18 @@
+.cards .splide__arrow--next{
+    left: 20%;
+    top: 109%;
+    background-color: #FCD4A1;
+    opacity: 1;
+}
+
+.cards{
+    border-bottom: 1px solid #fff;
+    border-top: 1px solid #fff;
+    margin-bottom: 20px;
+}
+
+.cards .splide__arrow--prev{
+    top: 109%;
+    background-color: #FCD4A1;
+    opacity: 1;
+}

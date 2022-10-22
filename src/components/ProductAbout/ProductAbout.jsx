@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react";
 import "./ProductAbout.css";
 import mask from "./mask.png";
-import demos from "../Products/demos.png";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
-import Modal from "subcomponents/Modal/Modal";
+import Modals from "subcomponents/Modal/Modal";
 import { useTranslation } from "react-i18next";
-import SlideBtn from "components/SlideBtn/SlideBtn";
-import { Splide } from "@splidejs/react-splide";
-import { SplideSlide } from "@splidejs/react-splide";
-
+import { Splide, SplideSlide } from "@splidejs/react-splide";
+import "@splidejs/splide/dist/css/splide.min.css";
+import Modal from "subcomponents/Modal/Modal";
+import Card from "components/Card/Card";
+import CardPlanshet from "components/CardPlanshet/CardPlanshet";
+import CardMobile from "components/CardMobile/CardMobile";
 
 function ProductAbout({ english, russian, uzbek }) {
   var { id } = useParams();
@@ -36,9 +37,15 @@ function ProductAbout({ english, russian, uzbek }) {
 
   //Bot meesage
 
+  const [greatModal, setGreatModal] = useState(false);
+
+  function openGreatModal() {
+    setGreatModal(!greatModal);
+    window.scrollTo();
+  }
+
   const formBtn = (e) => {
     e.preventDefault();
-    //  console.log(e)
     if (e.target[0].value.length > 0 && e.target[1].value.length > 0) {
       let botMessege = `
                  Salom, Yangi Xabar!😊%0A
@@ -48,12 +55,9 @@ function ProductAbout({ english, russian, uzbek }) {
             `;
 
       let url = `https://api.telegram.org/bot5407892565:AAGcvMnAPpnfj5a5zU2rG5sCYPifARtAmV0/sendMessage?chat_id=-1001549647557&text=${botMessege}`;
-      //   console.log(url)
       async function fetchAsync(url) {
         let response = await fetch(url);
-        //   console.log(response,"1-si")
         let data = await response.json();
-        // console.log(data,"2-si")
         return data;
       }
       fetchAsync(url);
@@ -77,8 +81,6 @@ function ProductAbout({ english, russian, uzbek }) {
       e.target[0].value = "";
 
       e.target[1].value = "";
-
-      // e.target[2].value=""
     } else {
       if (e.target[0].value.length < 1) {
         document.querySelector("#name").classList.add("input-error");
@@ -101,6 +103,13 @@ function ProductAbout({ english, russian, uzbek }) {
 
   const { t } = useTranslation();
 
+  const [reklama, setReklama] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("https://lion.abba.uz/api/reklama")
+      .then((res) => setReklama(res.data));
+  }, []);
 
   return (
     <div className="about">
@@ -108,13 +117,13 @@ function ProductAbout({ english, russian, uzbek }) {
         <ul className="about-list">
           <li className="about-item">
             <a href="/" className="about-link">
-              Home
+              {t("cat2_h6")}
             </a>
           </li>
           <li className="about-item">></li>
           <li className="about-item">
-            <a href="#category" className="about-link">
-              Products
+            <a href="/" className="about-link">
+              {t("cat2_h62")}
             </a>
           </li>
           <li className="about-item">></li>
@@ -122,7 +131,16 @@ function ProductAbout({ english, russian, uzbek }) {
           {russian && <li className="about-item">{product.name_ru}</li>}
           {uzbek && <li className="about-item">{product.name_uz}</li>}
         </ul>
-
+        <div className="about-box">
+          <Link
+            onClick={() => window.scrollTo({ top: 0 })}
+            to="/"
+            style={{ display: "flex" }}
+            className="about--links"
+          >
+            <img src={mask} alt="" className="about-logo" /> {t("cat3_btn")}
+          </Link>
+        </div>
         <div className="about--title">
           {english && <h2 className="about-name">{product.name_en}</h2>}
           {russian && <h2 className="about-name">{product.name_ru}</h2>}
@@ -140,18 +158,25 @@ function ProductAbout({ english, russian, uzbek }) {
               <img src={mask} alt="" className="about-logo" /> {t("cat3_btn")}
             </Link>
 
-            <div className="about-items">
-              <h3 className="about-subnames">Мужские ремни</h3>
-              <p className="about-cost">от — $55.00</p>
-              <img src={demos} alt="" className="about-img" />
-              <button className="product-btns">{t("cat2_btn2")}</button>
-            </div>
+            {reklama.map((evt, i) => (
+              <div className="about-items">
+                {english && <h3 className="about-subnames">{evt.name_en}</h3>}
+                {russian && <h3 className="about-subnames">{evt.name_ru}</h3>}
+                {uzbek && <h3 className="about-subnames">{evt.name_uz}</h3>}
+                <img src={evt.image1} alt="" className="about-img" />
+                <a href="/" className="product-btns">
+                  {t("cat2_btn2")}
+                </a>
+              </div>
+            ))}
           </div>
 
           <div className="about-right">
             <div className="about__rights">
               <div className="about-titles">
-                <h3 className="about-names">Мужские ремни</h3>
+                {russian && <h3 className="about-names">Мужские ремни</h3>}
+                {english && <h3 className="about-names">Men's belts</h3>}
+                {uzbek && <h3 className="about-names">Erkaklar kamarlari</h3>}
                 {english && (
                   <p className="about-text">{product.description_en}</p>
                 )}
@@ -189,12 +214,21 @@ function ProductAbout({ english, russian, uzbek }) {
                     <li className="about--item">{t("dog")}</li>
                   </ul>
                 </div>
-                <button
-                  onClick={() => openKorzinkaModal()}
-                  className="about-button"
-                >
-                  Купи сейчас
-                </button>
+                {russian && (
+                  <button onClick={openKorzinkaModal} className="about-button">
+                    Купи сейчас
+                  </button>
+                )}
+                {english && (
+                  <button onClick={openKorzinkaModal} className="about-button">
+                    Buy Now
+                  </button>
+                )}
+                {uzbek && (
+                  <button onClick={openKorzinkaModal} className="about-button">
+                    Sotib olish
+                  </button>
+                )}
               </div>
               <div className="about-page">
                 <img src={product.image} alt="" className="about-image" />
@@ -202,43 +236,14 @@ function ProductAbout({ english, russian, uzbek }) {
             </div>
 
             <p className="about--text">{t("cat3_h2")}</p>
-            <div className="about-splide">
-              <Splide
-                aria-label="React Splide Example"
-              >
-                {top.map((evt, i) => (
-                  <SplideSlide>
-                    <Link to={`/aboutId=${evt.id}`}>
-                      <div
-                        key={i}
-                        id={evt.id}
-                        className="product__items about--items"
-                      >
-                        <img
-                          src={evt.image}
-                          alt=""
-                          className="product-pic about--pic"
-                        />
-                        {english && (
-                          <p className="product-names">{evt.name_en}</p>
-                        )}
-                        {russian && (
-                          <p className="product-names">{evt.name_ru}</p>
-                        )}
-                        {uzbek && (
-                          <p className="product-names">{evt.name_uz}</p>
-                        )}
-                      </div>
-                    </Link>
-                  </SplideSlide>
-                ))}
-              </Splide>
-            </div>
+            <Card uzbek={uzbek} english={english} russian={russian} />
+            <CardPlanshet uzbek={uzbek} english={english} russian={russian} />
+            <CardMobile uzbek={uzbek} english={english} russian={russian} />
           </div>
         </div>
       </div>
-
-      <Modal show={korzinkaModal}>
+      <div></div>
+      <Modals show={korzinkaModal}>
         <button onClick={() => setKorzinkaModal()} className="modal-closes">
           &times;
         </button>
@@ -264,13 +269,87 @@ function ProductAbout({ english, russian, uzbek }) {
                 required
                 className="modal-input"
               />
-              <button id="btnSubmit" type="submit" className="modal-btn">
-                ОТПРАВИТЬ
-              </button>
+              <div>
+                {russian && (
+                  <button
+                    onClick={openGreatModal}
+                    type="submit"
+                    className="modal-btn"
+                  >
+                    ОТПРАВИТЬ
+                  </button>
+                )}
+                {english && (
+                  <button
+                    onClick={openGreatModal}
+                    type="submit"
+                    className="modal-btn"
+                  >
+                    Send
+                  </button>
+                )}
+                {uzbek && (
+                  <button
+                    onClick={openGreatModal}
+                    type="submit"
+                    className="modal-btn"
+                  >
+                    Yuborish
+                  </button>
+                )}
+              </div>
             </form>
           </div>
           <div className="modal-item">
             <img src={product.image} alt="" className="modal-img" />
+          </div>
+        </div>
+      </Modals>
+
+      <Modal show={greatModal}>
+        <div className="modal-form">
+          <Link
+            to="/"
+            className="form-close"
+            onClick={() => window.scrollTo({ top: 0 })}
+          >
+            &times;
+          </Link>
+          {uzbek && (
+            <h3 className="form-names">Murojaatingiz uchun tashakkur 😊</h3>
+          )}
+          {english && (
+            <h3 className="form-names">Thank you for your request 😊</h3>
+          )}
+          {russian && <h3 className="form-names">Спасибо за ваш запрос 😊</h3>}
+          <div className="form-title">
+            {english && (
+              <Link
+                to="/"
+                onClick={() => window.scrollTo({ top: 0 })}
+                className="form-done"
+              >
+                Send
+              </Link>
+            )}
+            {russian && (
+              <Link
+                to="/"
+                onClick={() => window.scrollTo({ top: 0 })}
+                className="form-done"
+              >
+                ОТПРАВИТЬ
+              </Link>
+            )}
+            {uzbek && (
+              <Link
+                to="/"
+                onClick={() => window.scrollTo({ top: 0 })}
+                className="form-done"
+              >
+                Yuboring
+              </Link>
+            )}
           </div>
         </div>
       </Modal>

@@ -252,7 +252,20 @@ section {
   .about-text {
     font-size: 18px;
     line-height: 22px;
-    width: 100%;
+    /* width: 100%; */
+  }
+
+
+  .card-slider{
+    display: block;
+  }
+
+  .card{
+    display: none;
+  }
+
+.about  .cards{
+    display: block;
   }
 
   .about {
@@ -315,6 +328,29 @@ section {
     margin: 10px;
     margin-top: 70px;
   }
+
+  .product-subtext{
+    top: 28%;
+    left: 7%;
+  }
+
+  .product-name{
+    padding: 40px 0;
+  }
+
+  .header__links{
+    gap: 10px;
+  }
+
+  .header__link{
+    font-size: 14px;
+  }
+
+  .about__rights {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  
 }
 
 @media (max-width: 800px) {
@@ -332,6 +368,17 @@ section {
     width: 100%;
     height: auto;
     padding-bottom: 40px;
+  }
+
+  .product-name{
+    font-size: 60px;
+    line-height: 75px;
+    margin-top: 50px;
+  }
+
+  .product-subtext{
+    top: 24%;
+    left: 7%;
   }
 
   .product-btns {
@@ -499,6 +546,10 @@ section {
     padding-bottom: 20px;
   }
 
+  .modal-video{
+    width: 100%;
+  }
+
 }
 
 @media (max-width: 660px) {
@@ -526,7 +577,9 @@ section {
   .company-item{
     display: flex;
     justify-content: space-between;
+    align-items: center;
   }
+
 
   .new-img{
     height: 200px;
@@ -580,6 +633,19 @@ section {
   .slides-next {
     right: 0px !important;
     left: inherit !important;
+  }
+
+  .product-name{
+    padding-bottom: 80px;
+  }
+  .product-subtext{
+    top: 17%;
+    left: 7%;
+  }
+
+  .product-buttons{
+    width: 100%;
+    margin-top: 15px;
   }
   
 
@@ -690,7 +756,7 @@ section {
   .product-btns {
     width: 90%;
     margin: 0;
-    margin-left: 40px;
+    margin-left: 90px;
   }
 
   .product-img {
@@ -700,14 +766,14 @@ section {
   }
 
   .about-name{
-    font-size: 80px;
+    font-size: 55px;
     width: 100%;
-    line-height: 100px;
+    line-height: 60px;
   }
 
   .product-name{
-    font-size: 70px;
-    line-height: 80px;
+    font-size: 50px;
+    line-height: 60px;
     width: 100%;
   }
 
@@ -716,7 +782,7 @@ section {
   }
 
   .product-subtext{
-    margin-left: 0;
+    margin-left: 10px;
   }
 
   .content-number{
@@ -795,8 +861,13 @@ section {
   }
 
   .homeproducts .homeproducts__product {
-    width: 100%;
+    width: 80%;
     height: 400px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .homeblog .homeproducts__product {
@@ -839,7 +910,7 @@ section {
   }
 
   .homemain__title {
-    font-size: 40px;
+    font-size: 35px;
     line-height: 45px;
     width: 100%;
   }
@@ -849,9 +920,7 @@ section {
     padding: 0;
   }
 
-  .product-btns{
-    margin-left: 20px;
-  }
+ 
 
   .about-subnames{
     font-size: 30px;
@@ -869,8 +938,17 @@ section {
   }
 
   .product-name{
-    font-size: 55px;
-    line-height: 70px;
+    font-size: 35px;
+    line-height: 40px;
+    margin-top: 0;
+    padding-bottom: 40px;
+  }
+
+  .product-subtext{
+    top: 24%;
+    font-size: 22px;
+    left: 7%;
+    margin-top: -20px;
   }
 
   .footer__text{
@@ -888,6 +966,16 @@ section {
   .new-name{
     font-size: 22px;
     line-height: 25px;
+  }
+
+  .homepartners .splide__arrow--next {
+    background-color: black;
+    left: 105%;
+  }
+  
+  .homepartners .splide__arrow--prev{
+    background-color: black;
+    left: -14%;
   }
 
   .content-number{
@@ -913,12 +1001,77 @@ section {
   }
 
   .about-name{
-    font-size: 40px;
+    font-size: 35px;
+    margin-top: 20px;
+    line-height: 45px;
   }
+
+  .company-name{
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+ .homeabout .about__left-img{
+    width: 100%;
+  }
+
+  .product-btns{
+    margin-left: 60px;
+  }
+
+  .product-select{
+    display: block;
+    margin-top: 30px;
+  }
+
+  .product-buttons{
+    display: none;
+  }
+
+ .about .cards{
+    display: none;
+  }
+
+.about  .cardd{
+    display: block;
+  }
+
+  .product-select{
+    display: block;
+  }
+
+ .about .about--links{
+    display: block;
+    margin-top: 25px;
+  }
+
+  .about-links{
+    display: none;
+  }
+
+
+  .modal-video{
+    width: 100%;
+  }
+
+  .company-subname{
+    font-size: 14px;
+  }
+
 }
 
-
+.about--links{
+  display: none;
+}
 
 html{
   scroll-behavior: smooth;
+}
+
+.cards{
+  display: none;
+}
+
+.cardd{
+  display: none;
 }

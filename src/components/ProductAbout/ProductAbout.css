@@ -14,15 +14,7 @@
   align-items: center;
 }
 
-.about .splide__arrow--next{
-  left: 15%;
-  top: 110%;
-}
 
-.about .splide__arrow--prev{
-  left: 0%;
-  top: 110%;
-}
 
 .about-item {
   margin: 0 3px;
@@ -63,7 +55,7 @@
   width: 250px;
 }
 
-.about-links {
+.about-links, .about--links {
   background: #fcd4a1;
   border-radius: 40px;
   font-family: "Mulish";
@@ -77,6 +69,7 @@
   padding: 15px 40px;
   width: 245px;
 }
+
 
 .about-logo {
   margin: 0 15px;
@@ -254,6 +247,13 @@
   margin: 15px 0;
 }
 
+.about-slider{
+  display: flex;
+  border-bottom: 1px solid #fff;
+  border-top: 1px solid #fff;
+  flex-wrap: wrap;
+}
+
 .modal-closes {
   font-size: 45px;
   color: red;
@@ -273,12 +273,16 @@
   display: flex;
 }
 
+.about-box{
+  display: none;
+}
+
 .modal-item {
   background: #bca38e;
   border-bottom-left-radius: 225px;
   border-top-left-radius: 225px;
   width: 300px;
-  height: 370px;
+  height: 380px;
   margin-top: -40px;
 }
 
@@ -314,7 +318,7 @@
 
 .about--title > p {
   position: absolute;
-  top: 19%;
+  top: 16%;
   left: 55%;
   border-bottom: 4px solid #fff;
   width: 250px;
@@ -323,4 +327,113 @@
   font-weight: 700;
   font-size: 38px;
   line-height: 48px;
+}
+
+.form-names{
+  color: #1c1c1c;
+  font-size: 20px;
+  line-height: 30px;
+}
+
+.modal-form{
+  padding: 30px;
+}
+
+.form-close{
+  color: red;
+  font-weight: bold;
+  font-size: 40px;
+  line-height: 45px;
+  margin-left:auto;
+  margin-top: -15px;
+}
+
+.form-done{
+  width: 150px;
+  border-radius: 8px;
+  height: 45px;
+  border: none;
+  background-color: #fcd4a1;
+  color: #fff;
+  margin: 15px 0;
+  cursor: pointer;
+}
+
+.form-title{
+  text-align: center;
+}
+
+
+@media (max-width:800px) {
+  
+  .container{
+    width: 100%;
+  }
+
+  .about--title > p{
+    top: 9%;
+    left: 9%;
+  }
+
+  .about-name{
+    font-size: 80px;
+    line-height: 90px;
+    width: 100%;
+  }
+
+  .header-btn{
+    display: none;
+  }
+}
+
+
+.about__slider{
+  width: 100%;
+}
+
+.modal-closed{
+  font-size: 40px;
+  color: red;
+  font-weight: bold;
+  margin-right: auto;
+  cursor: pointer;
+}
+
+.form-done{
+  padding: 12px 30px;
+}
+
+.modal-form > h3{
+  margin: 20px 0;
+}
+
+@media (max-width:460px) {
+  
+  .container{
+    width: 100%;
+  }
+
+  .about-box{
+    display: block;
+  }
+
+  .about{
+    margin-top: 40px;
+  }
+
+  .about--title > p{
+    top:9%;
+    font-size: 24px;
+    left: 11%;
+    margin-top: 20px;
+  }
+
+  .about--items{
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .product__items{
+    margin: 0;
+  }
 }

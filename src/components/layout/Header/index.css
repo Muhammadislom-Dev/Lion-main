@@ -100,10 +100,12 @@
 .header-list {
   list-style: none;
   margin: 20px;
+  /* flex-direction: column; */
+  /* display: flex; */
 }
 
 .header-item {
-  margin: 20px 0;
+  margin: 20px 10px;
 }
 
 .header-link {
@@ -121,6 +123,20 @@
   padding: 10px 25px;
 }
 
+.header-page{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.header-btns{
+  background: #fcd4a1;
+  border-radius: 13px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 16px;
+  padding: 10px 20px;
+}
 
 .header-list{
   display: flex;

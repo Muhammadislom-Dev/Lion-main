@@ -1,0 +1,25 @@
+.card .splide__arrow--next{
+    left: 5%;
+    top: 109%;
+    background-color: #FCD4A1;
+    opacity: 1;
+}
+
+.card{
+    border-bottom: 1px solid #fff;
+    border-top: 1px solid #fff;
+    margin-left: -20px;
+}
+
+.card .splide__arrow--prev{
+    top: 109%;
+    background-color: #FCD4A1;
+    opacity: 1;
+}
+
+.card .container{
+    margin-left: -60px;
+}
+
+
+

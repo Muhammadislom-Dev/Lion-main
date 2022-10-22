@@ -1,4 +1,3 @@
-import { t } from "i18next";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { BsArrowRight } from "react-icons/bs";
@@ -18,7 +17,7 @@ export default function HomeProduction() {
               {t('p_5_h1')}
           </h2>
           <p className="homeproduction__left-text">
-             {t('factory')}
+             {t('about_us_mini')}
           </p>
           <Link 
             onClick={() => window.scrollTo({ top: 0 })}

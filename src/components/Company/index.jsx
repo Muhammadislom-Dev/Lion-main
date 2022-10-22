@@ -12,8 +12,8 @@ const Company = () => {
     <div className="company">
       <div className="container">
         <p className="company-subnames">
-          <a href="/">Home</a>
-          > <span>About</span>
+          <a href="/">{t("cat2_h6")}</a>
+          > <span>{t('about_page_h6')}</span>
         </p>
         <div className="company-title">
           <div className="company-item">

@@ -2,9 +2,10 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import Modal from "subcomponents/Modal/Modal";
 import "./index.css";
 
-export default function Contact() {
+export default function Contact({ russian, english, uzbek }) {
   const [scrollY, setScrollY] = useState(0);
   const handleScroll = () => setScrollY(window.scrollY);
 
@@ -82,29 +83,60 @@ export default function Contact() {
 
   const { t } = useTranslation();
 
+  const [greatModal, setGreatModal] = useState(false);
+
+  function openGreatModal() {
+    setGreatModal(!greatModal);
+  }
+
   return (
     <section id="contact" className="contact">
       <div className="container">
         <div className="contact__left">
-          <h2 className="contact__left-title section__title">
-          {t('p_7_h1')}
-          </h2>
-          <form id="myForm" onSubmit={formBtn}  className="contact__form">
+          <h2 className="contact__left-title section__title">{t("p_7_h1")}</h2>
+          <form id="myForm" onSubmit={formBtn} className="contact__form">
             <input
-              name="name" id="name" type="text"
-              placeholder={t('name')}
+              name="name"
+              id="name"
+              type="text"
+              placeholder={t("name")}
               minLength={2}
               required
               maxLength={1000}
               className="contact__form-input"
             />
             <input
-              id="tel" type="number" name='tel'
-              placeholder={t('phone')}
+              id="tel"
+              type="number"
+              name="tel"
+              placeholder={t("phone")}
               required
               className="contact__form-input"
             />
-            <button className="contact__form-btn">{t('send')}</button>
+            {english && (
+              <button
+                onClick={() => openGreatModal()}
+                className="contact__form-btn"
+              >
+                Send
+              </button>
+            )}
+            {russian && (
+              <button
+                onClick={() => openGreatModal()}
+                className="contact__form-btn"
+              >
+                ОТПРАВИТЬ
+              </button>
+            )}
+            {uzbek && (
+              <button
+                onClick={() => openGreatModal()}
+                className="contact__form-btn"
+              >
+                Yuboring
+              </button>
+            )}
           </form>
         </div>
         <div className="contact__right">
@@ -120,6 +152,44 @@ export default function Contact() {
           />
         </div>
       </div>
+
+      <Modal
+        show={greatModal}
+        className="modal-content"
+        contentLabel="Example Modal"
+      >
+        <div className="modal-form">
+          <button className="form-close" onClick={() => setGreatModal()}>
+            &times;
+          </button>
+          {uzbek && (
+            <h3 className="form-names">Murojaatingiz uchun tashakkur 😊</h3>
+          )}
+          {russian && (
+            <h3 className="form-names">Спасибо, что поинтересовались 😊</h3>
+          )}
+          {english && (
+            <h3 className="form-names">Thank you for your request 😊</h3>
+          )}
+          <div className="form-title">
+            {uzbek && (
+              <button onClick={() => setGreatModal()} className="form-done">
+                Yuboring
+              </button>
+            )}
+            {russian && (
+              <button onClick={() => setGreatModal()} className="form-done">
+                ОТПРАВИТЬ
+              </button>
+            )}
+            {english && (
+              <button onClick={() => setGreatModal()} className="form-done">
+                Send
+              </button>
+            )}
+          </div>
+        </div>
+      </Modal>
 
       <h1
         className="contact__bottom-text"

@@ -1,0 +1,19 @@
+.cardd .splide__arrow--next{
+    left: 20%;
+    top: 109%;
+    background-color: #FCD4A1;
+    opacity: 1;
+}
+
+.cardd{
+    border-bottom: 1px solid #fff;
+    border-top: 1px solid #fff;
+    margin-bottom: 40px;
+    margin-left: auto;
+}
+
+.cardd .splide__arrow--prev{
+    top: 109%;
+    background-color: #FCD4A1;
+    opacity: 1;
+}

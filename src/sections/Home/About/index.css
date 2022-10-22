@@ -4,6 +4,16 @@
   gap: 100px;
 }
 
+.modal-iframe{
+  height: 100%;
+  width: 100%;
+}
+
+.modal-video{
+  width: 700px;
+  height: 320px;
+}
+
 .about__right{
   display: flex;
   flex-direction: column;

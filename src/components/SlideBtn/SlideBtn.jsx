@@ -1,11 +1,46 @@
+import { Splide, SplideTrack } from '@splidejs/react-splide'
 import React from 'react'
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
-import "./SlideBtn.css";
+import { SliderBtn } from 'subcomponents'
 
-export default function SlideBtn({ rightIcon, onClick, style, className }) {
+const splideOpts = {
+  rewind: true,
+  loop: true,
+  pagination: false,
+  perPage: 4,
+  perMove: 1,
+  breakpoints: {
+    1000: {
+      perPage: 2
+    },
+    700: {
+      perPage: 1
+    }
+  }
+}
+
+export default function SplideSliders({ options, children, items }) {
   return (
-    <button style={style} onClick={onClick} className={`slide-btn ${rightIcon ? "slide__next" : "slide__prev"} ${className}`}>
-      {rightIcon ? <FaChevronRight /> : <FaChevronLeft />}
-    </button>
+    <Splide
+      hasTrack={false}
+      options={options || splideOpts}
+    >
+      <div className="splide__arrows splide__arrows--ltr">
+        <SliderBtn
+          isPrev
+          style={{ transform: `translateY(-50%) rotate(180deg) !important` }}
+          className="splide__arrow--prev slide-prev-transforms"
+        />
+        <SliderBtn
+          attrs={{
+            "aria-label": "Next slide", "aria-controls": "splide01-track",
+            type: "button"
+          }}
+          className="splide__arrow--next"
+        />
+      </div>
+      <SplideTrack>
+        {children}
+      </SplideTrack>
+    </Splide>
   )
 }

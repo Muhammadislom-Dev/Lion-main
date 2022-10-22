@@ -2,11 +2,10 @@
   padding: 150px 0 100px;
 }
 
-
 .products__title{
   background-color: #fff;
   height: 75%;
-  width: 85%;
+  width: 80%;
   margin: 0 10px;
   border-radius: 9999px;
   transition: .3s;
@@ -52,4 +51,23 @@
 }
 
 
+.product-splide{
+  display: none;
+}
 
+
+@media (max-width:500px) {
+  
+  .container{
+    width: 100%;
+  }
+
+  .product-splide{
+    display: block;
+  }
+
+  .homeproducts__wrapper{
+    display: none;
+  }
+  
+}

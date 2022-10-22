@@ -19,3 +19,15 @@
   border-bottom-left-radius: 100px !important;
 }
 
+.splide__arrow--next{
+  background: #FED6A2;
+  opacity: 1;
+}
+.splide__arrow--prev{
+  background: #FED6A2;
+  opacity: 1;
+}
+
+.splide__arrow svg{
+  fill: #fff;
+}

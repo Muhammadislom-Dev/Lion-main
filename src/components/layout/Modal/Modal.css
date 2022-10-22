@@ -22,7 +22,7 @@
     width: 100%;
     height: 100%;
     background: #ffffff;
-    border-radius: 30px;
+    /* border-radius: 30px; */
   }
   .modalContainers.shows {
     visibility: visible;

@@ -16,7 +16,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: auto;
+  margin: auto 10px;
   transition: .5s;
   cursor: pointer;
 }
@@ -116,6 +116,7 @@ button.splide__pagination__page.is-active {
   width: fit-content;
   color: #fff;
   padding: 5px 25px 5px 5px;
+  padding-right: 70px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -124,7 +125,7 @@ button.splide__pagination__page.is-active {
 }
 
 .products__modal-btn:hover .products__modal-btn-icon {
-  transform: translateX(5px);
+  transform: translateX(10px);
 }
 
 .products__modal-btn-icon {
@@ -137,6 +138,7 @@ button.splide__pagination__page.is-active {
   border-radius: 50%;
   font-size: 20px;
   transition: .5s;
+  margin-left: 10px;
 }
 
 .modal-page{
@@ -158,10 +160,12 @@ button.splide__pagination__page.is-active {
  .modall .splide__arrow--next{
   right: 0.5em;
   left: 430px;
+  opacity: 1;
 }
 
 .modall .splide__arrow--prev{
   left: -60px;
+  opacity: 1;
 }
 
 .modall .splide__pagination{

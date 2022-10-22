@@ -29,3 +29,12 @@
     width: 55px;
     height: 55px;
   }
+
+.splide__arrows{
+  position: relative;
+}
+
+.splide__arrow--next{
+  position: absolute;
+  left: 15%;
+}

@@ -15,12 +15,10 @@ export default function Footer() {
     const placeholder = document.querySelector('.placeholder')
     const footer = document.querySelector('.footer')
 
-    // On DOM Content Load, set placeholder height to be equal to footer height
     updateHeight()
 
     window.addEventListener('resize', onResize)
 
-    // On window resize, update placeholder height to be equal to footer height
     function onResize() {
       updateHeight()
     }
@@ -55,19 +53,19 @@ export default function Footer() {
               <div className='footer__item'>
                 <h4 className='footer__item-title'>{t('f_name1')}</h4>
                 <div className='footer__item-links'>
-                   <a className='footer-link' href='#'>{t('f1')}</a>
-                   <a className='footer-link' href='#'>{t('f3')}</a>
-                   <a className='footer-link' href='#'>{t('f3')}</a>
-                   <a className='footer-link' href='#'>{t('f4')}</a>
+                   <Link onClick={() => window.scrollTo({ top: 1700 })} className='footer-link' to='/'>{t('f1')}</Link>
+                   <Link onClick={() => window.scrollTo({ top: 2400 })} className='footer-link' to='/'>{t('f2')}</Link>
+                   <Link onClick={() => window.scrollTo({ top: 3000 })} className='footer-link' to='/'>{t('f3')}</Link>
+                   <Link onClick={() => window.scrollTo({ top: 3500 })} className='footer-link' to='/'>{t('f4')}</Link>
                 </div>
               </div>
               <div className='footer__item'>
                 <h4 className='footer__item-title'>{t('f_name2')}</h4>
                 <div className='footer__item-links'>
-                   <a className='footer-link' href='#'>{t('f5')}</a>
-                   <a className='footer-link' href='#'>{t('f6')}</a>
-                   <a className='footer-link' href='#'>{t('f7')}</a>
-                   <a className='footer-link' href='#'>{t('f8')}</a>
+                   <Link onClick={() => window.scrollTo({ top: 1400 })} className='footer-link' to='/'>{t('f5')}</Link>
+                   <Link onClick={() => window.scrollTo({ top: 1400 })} className='footer-link' to='/'>{t('f6')}</Link>
+                   <Link onClick={() => window.scrollTo({ top: 1400 })} className='footer-link' to='/'>{t('f7')}</Link>
+                   <Link onClick={() => window.scrollTo({ top: 1400 })} className='footer-link' to='/'>{t('f8')}</Link>
                 </div>
               </div>
               <div className='footer__item'>

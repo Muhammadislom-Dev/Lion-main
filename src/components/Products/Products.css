@@ -31,9 +31,9 @@
 
 .product__items{
   background-color: #fff;
-  width: 230px;
+  width: 170px;
   height: 347px;
-  margin: 15px;
+  margin: 5px;
   border-radius: 5px;
   cursor: pointer;
 }
@@ -139,7 +139,7 @@
 .product-item {
   background: #ce713b;
   width: 245px;
-  height: 430px;
+  height: 400px;
   border-radius: 8px;
   margin-top: 45px;
 }
@@ -177,7 +177,8 @@
   line-height: 22px;
   text-align: center;
   color: #2f2f2f;
-  margin: 25px 25px 0;
+  margin: 25px 35px 0;
+  padding: 12px 55px;
 }
 
 .product-pic {
@@ -237,4 +238,16 @@
   flex-wrap: wrap;
   margin: 20px 50px;
 }
+
+.product-select{
+  width: 180px;
+  display: none;
+  background-color: #FCD4A1;
+  border-radius: 8px;
+}
+
+.product .css-1nrlq1o-MuiFormControl-root{
+  width: 100%;
+}
+
 
