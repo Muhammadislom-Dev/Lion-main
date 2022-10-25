@@ -20,7 +20,7 @@ function CardPlanshet({ russian, english, uzbek }) {
       <div className="card-slider">
         <Splide
           className="splide-slidee"
-          options={{ type: "loop", perPage: 2, autoplay: true }}
+          options={{  perPage: 2, autoplay: true }}
         >
           {product.map((partner, i) => (
             <SplideSlide key={i} className="splide-box">

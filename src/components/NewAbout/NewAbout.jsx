@@ -4,7 +4,7 @@ import News from "./new.png";
 import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { t } from "i18next";
 import { useTranslation } from "react-i18next";
 import { HomeBlog } from "sections";
@@ -26,9 +26,7 @@ function NewAbout({ uzbek, russian, english }) {
       <div className="container">
         <p className="new-home">
           <a href="/">{t("cat2_h6")}</a> > 
-          {english && <span className="new-span">News</span>}
-          {russian && <span className="new-span">Новости</span>}
-          {uzbek && <span className="new-span">Yangiliklar</span>}
+           <span className="new-span">{t("f2")}</span>
         </p>
         <div className="company-title">
           <div className="company-item">

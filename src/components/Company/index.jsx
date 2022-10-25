@@ -3,6 +3,7 @@ import "./index.css";
 import company from "./company.png";
 import { t } from "i18next";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
 const Company = () => {
 
@@ -12,7 +13,7 @@ const Company = () => {
     <div className="company">
       <div className="container">
         <p className="company-subnames">
-          <a href="/">{t("cat2_h6")}</a>
+          <a onClick={() => window.scrollTo({ top: 0 })} href="/">{t("cat2_h6")}</a>
           > <span>{t('about_page_h6')}</span>
         </p>
         <div className="company-title">

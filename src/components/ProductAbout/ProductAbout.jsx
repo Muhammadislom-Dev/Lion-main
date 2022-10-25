@@ -13,6 +13,8 @@ import CardPlanshet from "components/CardPlanshet/CardPlanshet";
 import CardMobile from "components/CardMobile/CardMobile";
 
 function ProductAbout({ english, russian, uzbek }) {
+
+  
   var { id } = useParams();
   const [product, setProduct] = useState([]);
 
@@ -41,7 +43,6 @@ function ProductAbout({ english, russian, uzbek }) {
 
   function openGreatModal() {
     setGreatModal(!greatModal);
-    window.scrollTo();
   }
 
   const formBtn = (e) => {
@@ -81,6 +82,9 @@ function ProductAbout({ english, russian, uzbek }) {
       e.target[0].value = "";
 
       e.target[1].value = "";
+
+      openGreatModal()
+
     } else {
       if (e.target[0].value.length < 1) {
         document.querySelector("#name").classList.add("input-error");
@@ -132,14 +136,14 @@ function ProductAbout({ english, russian, uzbek }) {
           {uzbek && <li className="about-item">{product.name_uz}</li>}
         </ul>
         <div className="about-box">
-          <Link
-            onClick={() => window.scrollTo({ top: 0 })}
-            to="/"
+          <a
+            // onClick={() => window.scrollTo({ top: 0 })}
+            href="/"
             style={{ display: "flex" }}
             className="about--links"
           >
             <img src={mask} alt="" className="about-logo" /> {t("cat3_btn")}
-          </Link>
+          </a>
         </div>
         <div className="about--title">
           {english && <h2 className="about-name">{product.name_en}</h2>}
@@ -174,9 +178,9 @@ function ProductAbout({ english, russian, uzbek }) {
           <div className="about-right">
             <div className="about__rights">
               <div className="about-titles">
-                {russian && <h3 className="about-names">Мужские ремни</h3>}
-                {english && <h3 className="about-names">Men's belts</h3>}
-                {uzbek && <h3 className="about-names">Erkaklar kamarlari</h3>}
+                <h3 className="about-names">{t('f6')}</h3>
+                {/* {english && <h3 className="about-names">Men's belts</h3>} */}
+                {/* {uzbek && <h3 className="about-names">Erkaklar kamarlari</h3>} */}
                 {english && (
                   <p className="about-text">{product.description_en}</p>
                 )}
@@ -188,13 +192,27 @@ function ProductAbout({ english, russian, uzbek }) {
                 )}
                 <div className="about--page">
                   <ul className="about--list">
-                    <li className="about--item">{t("cat3_i1")}</li>
-                    <li className="about--item">{t("cat3_i2")}</li>
-                    <li className="about--item">{t("cat3_i3")}</li>
-                    <li className="about--item">{t("cat3_i4")}</li>
-                    <li className="about--item">{t("cat3_i5")}</li>
-                    <li className="about--item">{t("cat3_i6")}</li>
-                    <li className="about--item">{t("cat3_i7")}</li>
+                    <li style={{ fontWeight: "bold" }} className="about--item">
+                      {t("cat3_i1")}
+                    </li>
+                    <li style={{ fontWeight: "bold" }} className="about--item">
+                      {t("cat3_i2")}
+                    </li>
+                    <li style={{ fontWeight: "bold" }} className="about--item">
+                      {t("cat3_i3")}
+                    </li>
+                    <li style={{ fontWeight: "bold" }} className="about--item">
+                      {t("cat3_i4")}
+                    </li>
+                    <li style={{ fontWeight: "bold" }} className="about--item">
+                      {t("cat3_i5")}
+                    </li>
+                    <li style={{ fontWeight: "bold" }} className="about--item">
+                      {t("cat3_i6")}
+                    </li>
+                    <li style={{ fontWeight: "bold" }} className="about--item">
+                      {t("cat3_i7")}
+                    </li>
                   </ul>
                   <ul className="about--list">
                     {english && (
@@ -214,21 +232,9 @@ function ProductAbout({ english, russian, uzbek }) {
                     <li className="about--item">{t("dog")}</li>
                   </ul>
                 </div>
-                {russian && (
-                  <button onClick={openKorzinkaModal} className="about-button">
-                    Купи сейчас
-                  </button>
-                )}
-                {english && (
-                  <button onClick={openKorzinkaModal} className="about-button">
-                    Buy Now
-                  </button>
-                )}
-                {uzbek && (
-                  <button onClick={openKorzinkaModal} className="about-button">
-                    Sotib olish
-                  </button>
-                )}
+                <button onClick={openKorzinkaModal} className="about-button">
+                  {t("cat2_btn")}
+                </button>
               </div>
               <div className="about-page">
                 <img src={product.image} alt="" className="about-image" />
@@ -270,33 +276,12 @@ function ProductAbout({ english, russian, uzbek }) {
                 className="modal-input"
               />
               <div>
-                {russian && (
-                  <button
-                    onClick={openGreatModal}
-                    type="submit"
-                    className="modal-btn"
-                  >
-                    ОТПРАВИТЬ
-                  </button>
-                )}
-                {english && (
-                  <button
-                    onClick={openGreatModal}
-                    type="submit"
-                    className="modal-btn"
-                  >
-                    Send
-                  </button>
-                )}
-                {uzbek && (
-                  <button
-                    onClick={openGreatModal}
-                    type="submit"
-                    className="modal-btn"
-                  >
-                    Yuborish
-                  </button>
-                )}
+                <button
+                  type="submit"
+                  className="modal-btn"
+                >
+                  {t("send")}
+                </button>
               </div>
             </form>
           </div>
@@ -308,48 +293,21 @@ function ProductAbout({ english, russian, uzbek }) {
 
       <Modal show={greatModal}>
         <div className="modal-form">
-          <Link
-            to="/"
-            className="form-close"
-            onClick={() => window.scrollTo({ top: 0 })}
-          >
-            &times;
-          </Link>
           {uzbek && (
-            <h3 className="form-names">Murojaatingiz uchun tashakkur 😊</h3>
+            <h4 className="form-names">Murojaatingiz qabul qilindi.</h4>
           )}
           {english && (
-            <h3 className="form-names">Thank you for your request 😊</h3>
+            <h4 className="form-names">Your request has been accepted.</h4>
           )}
-          {russian && <h3 className="form-names">Спасибо за ваш запрос 😊</h3>}
+          {russian && <h4 className="form-names">Ваше обращение принято.</h4>}
           <div className="form-title">
-            {english && (
-              <Link
-                to="/"
+              <a
+                href="/"
                 onClick={() => window.scrollTo({ top: 0 })}
                 className="form-done"
               >
-                Send
-              </Link>
-            )}
-            {russian && (
-              <Link
-                to="/"
-                onClick={() => window.scrollTo({ top: 0 })}
-                className="form-done"
-              >
-                ОТПРАВИТЬ
-              </Link>
-            )}
-            {uzbek && (
-              <Link
-                to="/"
-                onClick={() => window.scrollTo({ top: 0 })}
-                className="form-done"
-              >
-                Yuboring
-              </Link>
-            )}
+                Ok
+              </a>            
           </div>
         </div>
       </Modal>

@@ -53,7 +53,6 @@ export default function App() {
     localStorage.setItem("i18nextLng", "en");
     setLangTitle(localStorage.getItem("i18nextLng").toUpperCase());
   });
-  console.log(localStorage.getItem("i18nextLng"));
 
   const [catalog, setCatalog] = useState([]);
 
@@ -87,7 +86,7 @@ export default function App() {
               />
             }
           />
-          <Route path="/company" element={<Company />} />
+          <Route path="/companes" element={<Company />} />
           <Route
             path="/product=:id"
             element={
@@ -96,6 +95,7 @@ export default function App() {
                 english={english}
                 russian={russian}
                 uzbek={uzbek}
+                
               />
             }
           />

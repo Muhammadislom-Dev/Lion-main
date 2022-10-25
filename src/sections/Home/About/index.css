@@ -4,17 +4,69 @@
   gap: 100px;
 }
 
-.modal-iframe{
+.modal-iframe {
   height: 100%;
   width: 100%;
 }
 
-.modal-video{
+.modal-video {
   width: 700px;
   height: 320px;
 }
 
-.about__right{
+.download-box {
+  position: relative;
+  cursor: pointer;
+  width: max-content;
+}
+
+.download-btn {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #ffffff;
+  cursor: pointer;
+  background: #735b4d;
+  border-radius: 36px;
+  padding: 15px 45px;
+  padding-left: 80px;
+}
+
+.download-box{
+  width: 220px;
+  /* height: 55px; */
+}
+
+.download-blok {
+  background-color: #ffebe2;
+  padding: 8px;
+  width: 52px;
+  height: 42px;
+  margin-top: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.main-btn {
+  position: absolute;
+  top: 0;
+  margin-left: 10px;
+  width: 100%;
+  cursor: default !important;
+  overflow: hidden;
+  border-radius: 50px;
+}
+
+.products__modal-btn-icon {
+  width: 50px;
+  height: 50px;
+}
+
+.about__right {
   display: flex;
   flex-direction: column;
   position: relative;
@@ -38,7 +90,7 @@
 }
 
 .about__left-video-btn:hover {
-  transform: scale(.9);
+  transform: scale(0.9);
 }
 
 .about__left-video-btn:active {
@@ -61,5 +113,5 @@
   font-size: 14px;
   line-height: 21.47px;
   font-weight: 400;
-  opacity: .8;
+  opacity: 0.8;
 }

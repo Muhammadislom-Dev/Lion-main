@@ -3,20 +3,22 @@
   position: relative;
 }
 
-
-.products-link{
-  background: #FCD4A1;
+.products-link {
+  background: #fcd4a1;
   border-radius: 100px;
-  font-family: 'Mulish';
+  font-family: "Mulish";
   font-style: normal;
   font-weight: 900;
   font-size: 16px;
   line-height: 24px;
   color: #1c1c1c;
   padding: 15px 25px;
-  margin-left:35px;
+  margin: 0 auto;
   display: none;
   width: 164px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .product-items {
@@ -29,7 +31,7 @@
   transition: 1.5s;
 }
 
-.product__items{
+.product__items {
   background-color: #fff;
   width: 170px;
   height: 347px;
@@ -38,27 +40,27 @@
   cursor: pointer;
 }
 
-.product-items:hover  .products-link{
+.product-items:hover .products-link {
   display: block;
 }
 
-.product-items:hover .product--names{
+.product-items:hover .product--names {
   display: block;
 }
 
-.product-items:hover .product-names{
+.product-items:hover .product-names {
   display: none;
 }
 
-.product-items:hover{
+.product-items:hover {
   background-color: #333333;
 }
 
-.product--items{
+.product--items {
   padding: 30px 0;
 }
 
-.product-items:hover .product--items{
+.product-items:hover .product--items {
   border-radius: 119px;
   background-color: #fff;
 }
@@ -85,11 +87,11 @@
   position: absolute;
   top: 18%;
   left: 70%;
-  border-bottom: 4px solid #FFFFFF;
+  border-bottom: 4px solid #ffffff;
 }
 
-.product-span{
-    display: flex;
+.product-span {
+  display: flex;
 }
 
 .product-img {
@@ -97,6 +99,7 @@
   object-fit: contain;
   margin: 15px;
   margin-top: 40px;
+  margin-bottom: 30px;
 }
 
 .product-btn {
@@ -177,7 +180,10 @@
   line-height: 22px;
   text-align: center;
   color: #2f2f2f;
-  margin: 25px 35px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
   padding: 12px 55px;
 }
 
@@ -192,8 +198,7 @@
   margin: 25px;
 }
 
-
-.about--items{
+.about--items {
   width: 250px;
 }
 
@@ -211,8 +216,7 @@
   color: #1c1c1c;
 }
 
-
-.product--names{
+.product--names {
   font-family: "Space Grotesk";
   font-style: normal;
   font-weight: 500;
@@ -239,10 +243,10 @@
   margin: 20px 50px;
 }
 
-.product-select{
+.product-select {
   width: 180px;
   display: none;
-  background-color: #FCD4A1;
+  background-color: #fcd4a1;
   border-radius: 8px;
 }
 
@@ -251,3 +255,6 @@
 }
 
 
+.product .css-1d3z3hw-MuiOutlinedInput-notchedOutline{
+  width: 100%;
+}

@@ -20,7 +20,7 @@ function CardMobile({ russian, english, uzbek }) {
       <div className="card-slider">
         <Splide
           className="splide-slidee"
-          options={{ type: "loop", perPage: 1, autoplay: true }}
+          options={{ perPage: 1, autoplay: true }}
         >
           {product.map((partner, i) => (
             <SplideSlide key={i} className="splide-box">

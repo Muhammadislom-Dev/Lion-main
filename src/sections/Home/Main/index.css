@@ -71,6 +71,7 @@
   font-weight: 400;
   opacity: .7;
   width: 60%;
+  margin-bottom: 15px;
 }
 
 .homemain__main-slide-img {
@@ -125,7 +126,7 @@ button.splide__pagination__page.is-active {
 }
 
 .products__modal-btn:hover .products__modal-btn-icon {
-  transform: translateX(10px);
+  /* transform: translateX(10px); */
 }
 
 .products__modal-btn-icon {

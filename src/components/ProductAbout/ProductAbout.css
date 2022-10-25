@@ -331,8 +331,9 @@
 
 .form-names{
   color: #1c1c1c;
-  font-size: 20px;
-  line-height: 30px;
+  font-size: 18px;
+  line-height: 22px;
+  margin-bottom: 30px;
 }
 
 .modal-form{

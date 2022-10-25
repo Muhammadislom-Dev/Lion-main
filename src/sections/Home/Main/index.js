@@ -1,7 +1,7 @@
 import { SplideSlide } from "@splidejs/react-splide";
 import { SplideSlider } from "components";
 import { homemain_slides, main_slides } from "data";
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { PinkBg } from "subcomponents";
 import { BsArrowRight } from "react-icons/bs";
 import "./index.css";
@@ -14,6 +14,8 @@ import { Splide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import { t } from "i18next";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
+import interact from "interactjs";
 
 const splideOpts = {
   rewind: true,
@@ -39,6 +41,8 @@ const slideOptsMain = {
   arrows: false,
 };
 
+let timeout = null;
+
 export default function HomeMain({ english, russian, uzbek }) {
   const [slider, setSlider] = useState([]);
 
@@ -56,8 +60,7 @@ export default function HomeMain({ english, russian, uzbek }) {
       .then((res) => setVideo(res.data));
   }, []);
 
-  console.log(video);
-
+ 
   // const [isOpen, setOpen] = useState(false);
 
   const [korzinkaModal, setKorzinkaModal] = useState(false);
@@ -73,6 +76,53 @@ export default function HomeMain({ english, russian, uzbek }) {
     axios
       .get("https://lion.abba.uz/api/slider_reklama/")
       .then((res) => setSlider_reklama(res.data));
+  }, []);
+  const downRef = useRef();
+  const aRef = useRef();
+  const [, setDowned] = useState(false);
+
+  useEffect(() => {
+    const btn = interact(".main-btn");
+
+    btn.draggable({
+      // make the element fire drag events
+      origin: "self", // (0, 0) will be the element's top-left
+      inertia: true, // start inertial movement if thrown
+      modifiers: [
+        interact.modifiers.restrict({
+          restriction: "self", // keep the drag coords within the element
+        }),
+      ],
+      listeners: {
+        move(event) {
+          // call this listener on every dragmove
+          const sliderWidth = interact.getElementRect(event.target).width;
+          const value = event.pageX / sliderWidth;
+
+          event.target.style.paddingLeft = value * 100 + "%";
+          event.target.setAttribute("data-value", value.toFixed(2));
+          clearTimeout(timeout);
+
+          if (
+            parseFloat(downRef.current?.style.paddingLeft) >= parseFloat("65%")
+          ) {
+            setDowned((prev) => {
+              if (!prev) {
+                aRef.current.click();
+              }
+
+              downRef.current.style.paddingLeft = "0%";
+              return true;
+            });
+          } else {
+            setDowned(false);
+            timeout = setTimeout(() => {
+              downRef.current.style.paddingLeft = "0%";
+            }, 500);
+          }
+        },
+      },
+    });
   }, []);
 
   return (
@@ -107,13 +157,21 @@ export default function HomeMain({ english, russian, uzbek }) {
                 {english && <h1 className="homemain__title">{evt.name_en}</h1>}
                 {russian && <h1 className="homemain__title">{evt.name_ru}</h1>}
                 {uzbek && <h1 className="homemain__title">{evt.name_uz}</h1>}
-                {english && <p className="homemain__text">{evt.description_en}</p>}
-                {russian && <p className="homemain__text">{evt.description_ru}</p>}
-                {uzbek && <p className="homemain__text">{evt.description_uz}</p>}
+                {english && (
+                  <p className="homemain__text">{evt.description_en}</p>
+                )}
+                {russian && (
+                  <p className="homemain__text">{evt.description_ru}</p>
+                )}
+                {uzbek && (
+                  <p className="homemain__text">{evt.description_uz}</p>
+                )}
               </div>
             ))}
-            <a
-              href="#category"
+
+            <Link
+              to="/"
+              onClick={() => window.scrollTo({ top: 1000 })}
               className="products__modal-btn product__modal-btn"
             >
               <span className="products__modal-btn-icon">
@@ -122,7 +180,7 @@ export default function HomeMain({ english, russian, uzbek }) {
               <span className="products__modal-btn-text">
                 {t("p_1_button")}
               </span>
-            </a>
+            </Link>
           </div>
           <div className="homemain__main-slider">
             <SplideSlider

@@ -120,8 +120,11 @@
   }
 
   .footer__copyright {
-    font-size: 10.46px;
+    font-size: 9px;
+    line-height: 14px;
+    gap: 5px;
     flex-wrap: wrap;
+    padding: 25px 10px;
   }
 }
 
@@ -163,4 +166,6 @@
   .footer__copyright-text:last-of-type {
     margin-left: 0;
   }
+
+  
 }

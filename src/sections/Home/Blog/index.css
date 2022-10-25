@@ -31,3 +31,7 @@
 .splide__arrow svg{
   fill: #fff;
 }
+
+.homeblog .splide__arrow:disabled{
+  opacity: 1;
+}

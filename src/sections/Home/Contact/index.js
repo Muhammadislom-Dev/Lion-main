@@ -21,7 +21,11 @@ export default function Contact({ russian, english, uzbek }) {
     };
   }, []);
 
-  console.log(scrollY - 4000);
+  const [greatModal, setGreatModal] = useState(false);
+
+  function openGreatModal() {
+    setGreatModal(!greatModal);
+  }
 
   const formBtn = (e) => {
     e.preventDefault();
@@ -61,6 +65,9 @@ export default function Contact({ russian, english, uzbek }) {
       e.target[0].value = "";
 
       e.target[1].value = "";
+
+      openGreatModal();
+
     } else {
       if (e.target[0].value.length < 1) {
         document.querySelector("#name").classList.add("input-error");
@@ -83,11 +90,7 @@ export default function Contact({ russian, english, uzbek }) {
 
   const { t } = useTranslation();
 
-  const [greatModal, setGreatModal] = useState(false);
-
-  function openGreatModal() {
-    setGreatModal(!greatModal);
-  }
+  
 
   return (
     <section id="contact" className="contact">
@@ -113,30 +116,12 @@ export default function Contact({ russian, english, uzbek }) {
               required
               className="contact__form-input"
             />
-            {english && (
-              <button
-                onClick={() => openGreatModal()}
-                className="contact__form-btn"
-              >
-                Send
-              </button>
-            )}
-            {russian && (
-              <button
-                onClick={() => openGreatModal()}
-                className="contact__form-btn"
-              >
-                ОТПРАВИТЬ
-              </button>
-            )}
-            {uzbek && (
-              <button
-                onClick={() => openGreatModal()}
-                className="contact__form-btn"
-              >
-                Yuboring
-              </button>
-            )}
+            <button type="submit" id="btnSubmit"
+              // onClick={() => openGreatModal()}
+              className="contact__form-btn"
+            >
+              {t("send")}
+            </button>
           </form>
         </div>
         <div className="contact__right">
@@ -156,20 +141,14 @@ export default function Contact({ russian, english, uzbek }) {
       <Modal
         show={greatModal}
         className="modal-content"
-        contentLabel="Example Modal"
       >
         <div className="modal-form">
-          <button className="form-close" onClick={() => setGreatModal()}>
-            &times;
-          </button>
           {uzbek && (
-            <h3 className="form-names">Murojaatingiz uchun tashakkur 😊</h3>
+            <h4 className="form-names">Murojaatingiz qabul qilindi.</h4>
           )}
-          {russian && (
-            <h3 className="form-names">Спасибо, что поинтересовались 😊</h3>
-          )}
+          {russian && <h4 className="form-names">Ваше обращение принято.</h4>}
           {english && (
-            <h3 className="form-names">Thank you for your request 😊</h3>
+            <h4 className="form-names">Your request has been accepted.</h4>
           )}
           <div className="form-title">
             {uzbek && (
@@ -184,7 +163,7 @@ export default function Contact({ russian, english, uzbek }) {
             )}
             {english && (
               <button onClick={() => setGreatModal()} className="form-done">
-                Send
+                Ok
               </button>
             )}
           </div>

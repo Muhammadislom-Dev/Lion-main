@@ -34,6 +34,7 @@
   font-weight: 400;
   color: var(--pink-text);
   opacity: .8;
+  margin-bottom: 20px;
 }
 
 .homeproduction__right-btn {

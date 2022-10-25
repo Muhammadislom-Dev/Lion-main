@@ -4,10 +4,10 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, useLocation, useParams } from "react-router-dom";
 import Modal from "../Modal/Modal";
-import "./index.css";
+import "./Navbar.css";
 import vector from "./Vector (49).png";
 
-export default function Header({
+export default function Navbar({
   change1,
   change2,
   change3,
@@ -135,7 +135,6 @@ export default function Header({
 
         <ul className="header-lists">
           <li onClick={() => setKorzinkaModal()} className="header-item">
-            {location?.pathname === "/" ? (
               <Link
                 onClick={() => window.scrollTo({ top: 900 })}
                 to="/"
@@ -143,85 +142,33 @@ export default function Header({
               >
                 {t(`f_name2`)}
               </Link>
-            ) : (
-              <span onClick={() => window.scrollTo({ top: 900 })}>
-                <a href="/" className="header-link">
-                  {t(`f_name2`)}
-                </a>
-              </span>
-            )}
           </li>
           <li onClick={() => setKorzinkaModal()} className="header-item">
-            {location?.pathname === "/" ? (
-              <Link
-                onClick={() => window.scrollTo({ top: 1750 })}
-                to="/"
-                className="header-link"
-              >
-                {t(`about_page_h6`)}
-              </Link>
-            ) : (
-              <span onClick={() => window.scrollTo({ top: 1750 })}>
-                <a href="/" className="header-link">
-                  {t(`about_page_h6`)}
-                </a>
-              </span>
-            )}
-            {/* <a
+            <Link
               onClick={() => window.scrollTo({ top: 1750 })}
-              href="/"
+              to="/"
               className="header-link"
             >
               {t(`about_page_h6`)}
-            </a> */}
+            </Link>
           </li>
           <li onClick={() => setKorzinkaModal()} className="header-item">
-          {location?.pathname === "/" ? (
-              <Link
-                onClick={() => window.scrollTo({ top: 2400 })}
-                to="/"
-                className="header-link"
-              >
-                 {t(`f3`)}
-              </Link>
-            ) : (
-              <span onClick={() => window.scrollTo({ top: 2400 })}>
-                <a href="/" className="header-link">
-                   {t(`f3`)}
-                </a>
-              </span>
-            )}
-            {/* <a
+            <Link
               onClick={() => window.scrollTo({ top: 2400 })}
-              href="/"
+              to="/"
               className="header-link"
             >
               {t(`f3`)}
-            </a> */}
+            </Link>
           </li>
           <li onClick={() => setKorzinkaModal()} className="header-item">
-          {location?.pathname === "/" ? (
-              <Link
-                onClick={() => window.scrollTo({ top: 2400 })}
-                to="/"
-                className="header-link"
-              >
-                  {t(`f_name3`)}
-              </Link>
-            ) : (
-              <span onClick={() => window.scrollTo({ top: 2400 })}>
-                <a href="/" className="header-link">
-                {t(`f_name3`)}
-                </a>
-              </span>
-            )}
-            {/* <a
+            <Link
               onClick={() => window.scrollTo({ top: 2400 })}
-              href="/"
+              to="/"
               className="header-link"
             >
               {t(`f_name3`)}
-            </a> */}
+            </Link>
           </li>
           <li className="header-item">
             <a href="tel:+998995595353" className="header-btns">

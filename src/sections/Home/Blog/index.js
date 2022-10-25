@@ -65,15 +65,18 @@ export default function HomeBlog({ english, uzbek, russian }) {
 
         <Splide
           className="product-splide"
-          options={{ type: "loop", perPage: 1, autoplay: true }}
+          options={{ perPage: 1, autoplay: true }}
         >
           {news.map((prd, i) => (
-            <SplideSlide key={i} id={prd.id}>
-               <Link
-                  onClick={() => window.scrollTo({ top: 0 })}
-                  to={`/blog=${prd.id}`}
-                >
-                  <div
+            <SplideSlide 
+            onClick={() => window.location.reload(false)}
+            key={i} id={prd.id}>
+              <Link
+                onClick={() => window.scrollTo({ top: 0 })}
+                // id={prd.id}
+                to={`/blog=${prd.id}`}
+              >
+                <div  onClick={() => window.location.reload(false)}
                     key={i}
                     id={prd.id}
                     className="homeproducts__product blog__item"
@@ -98,7 +101,7 @@ export default function HomeBlog({ english, uzbek, russian }) {
                       </p>
                     )}
                   </div>
-                </Link>
+              </Link>
             </SplideSlide>
           ))}
         </Splide>

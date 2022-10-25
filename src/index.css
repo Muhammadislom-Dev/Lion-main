@@ -361,7 +361,7 @@ section {
 
   .about-title {
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
 
   .about-items {
@@ -383,7 +383,7 @@ section {
 
   .product-btns {
     width: 90%;
-    margin-left: 35px;
+    /* margin-left: 35px; */
   }
 
   .about-subnames {
@@ -410,6 +410,10 @@ section {
 
   .homeproduction .homeproduction__left,
   .homeproduction__right {
+    width: 100%;
+  }
+
+  .homeproduction__right{
     width: 100%;
   }
 
@@ -544,6 +548,7 @@ section {
     width: 100%;
     height: auto;
     padding-bottom: 20px;
+    margin: 0;
   }
 
   .modal-video{
@@ -613,7 +618,7 @@ section {
   }
 
   .company-img{
-    width: 70%;
+    width: 65%;
   }
 
   .modalContainer.show .modal{
@@ -695,7 +700,7 @@ section {
 
   .product-title {
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
 
   .product-left {
@@ -755,8 +760,8 @@ section {
 
   .product-btns {
     width: 90%;
-    margin: 0;
-    margin-left: 90px;
+    /* margin: 0; */
+    /* margin-left: 90px; */
   }
 
   .product-img {
@@ -809,6 +814,14 @@ section {
 
   .product .container{
     padding: 0 35px;
+  }
+
+  .company{
+    margin-top: 50px;
+  }
+
+  .content, .new{
+    margin-top: 40px;
   }
 
   .homeproduction .homeproduction__right-img {
@@ -955,6 +968,10 @@ section {
     width: 100%;
   }
 
+  .about .about--pic{
+    margin-left: auto;
+  }
+
   .company-about, .company-titles{
     margin: 0;
   }
@@ -964,7 +981,7 @@ section {
   }
 
   .new-name{
-    font-size: 22px;
+    font-size: 20px;
     line-height: 25px;
   }
 
@@ -1016,7 +1033,11 @@ section {
   }
 
   .product-btns{
-    margin-left: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    width: 80%;
   }
 
   .product-select{
@@ -1038,6 +1059,8 @@ section {
 
   .product-select{
     display: block;
+    width: 250px;
+    padding: 10px 15px;
   }
 
  .about .about--links{
@@ -1058,6 +1081,23 @@ section {
     font-size: 14px;
   }
 
+  .footer__top{
+    padding: 70px 10px;
+  }
+
+  .footer{
+    padding: 30px 0;
+  }
+
+  .homemain__main{
+      padding: 0;
+      margin: 80px 0;
+  }
+
+  .footer{
+      padding-top: 80px;
+  }
+
 }
 
 .about--links{
@@ -1074,4 +1114,24 @@ html{
 
 .cardd{
   display: none;
+}
+
+
+.load{
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  border: solid 10px white;
+  border-left-color: rgb(1, 2, 58);
+  border-top-color: rgb(1, 2, 58);
+  animation-name: loader;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes loader {
+  100%{
+      transform: rotate(360deg);
+  }
 }
