@@ -69,14 +69,13 @@ export default function HomeBlog({ english, uzbek, russian }) {
         >
           {news.map((prd, i) => (
             <SplideSlide 
-            onClick={() => window.location.reload(false)}
+            onClick={() => window.scrollTo({top:0})}
             key={i} id={prd.id}>
               <Link
                 onClick={() => window.scrollTo({ top: 0 })}
-                // id={prd.id}
                 to={`/blog=${prd.id}`}
               >
-                <div  onClick={() => window.location.reload(false)}
+                <div  onClick={() => window.scrollTo({top:0})}
                     key={i}
                     id={prd.id}
                     className="homeproducts__product blog__item"

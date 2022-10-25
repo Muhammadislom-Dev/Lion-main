@@ -874,7 +874,7 @@ section {
   }
 
   .homeproducts .homeproducts__product {
-    width: 80%;
+    width: 90%;
     height: 400px;
     text-align: center;
     display: flex;
@@ -884,7 +884,7 @@ section {
   }
 
   .homeblog .homeproducts__product {
-    width: 100%;
+    width: 90%;
     height: 400px;
   }
 
@@ -1096,6 +1096,14 @@ section {
 
   .footer{
       padding-top: 80px;
+  }
+
+  .homeblog .homeproducts__product-img{
+    width: 70%;
+  }
+
+  .homeproducts .homeproducts__product-img {
+    width: 70%;
   }
 
 }

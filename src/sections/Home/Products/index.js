@@ -5,25 +5,22 @@ import React, { useRef } from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { PinkBg } from "subcomponents";
 import "./index.css";
 import "@splidejs/splide/dist/css/splide.min.css";
 
 export default function HomeProducts({ english, uzbek, russian }) {
-
+  const { pathname } = useLocation();
   const [catalog, setCatalog] = useState([]);
 
   useEffect(() => {
     axios
       .get("https://lion.abba.uz/api/categories/")
       .then((res) => setCatalog(res?.data))
-      .catch((err) => console.log(["APIGet error:", err]) )
-  }, []);
-
-  let myRef = useRef()
-
-
+      .catch((err) => console.log(["APIGet error:", err]));
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   const { t } = useTranslation();
   return (
@@ -72,36 +69,50 @@ export default function HomeProducts({ english, uzbek, russian }) {
           </SplideSlider>
         </div>
 
-        <Splide 
+        <Splide
           className="product-splide"
-          options={{ perPage: 1, autoplay: true }}
+          options={{ perPage: 1, autoplay: false }}
         >
           {catalog.map((prd, i) => (
-            <SplideSlide  onClick={() => window.location.reload(false)} 
-            key={i} id={prd?.id}>
-              <Link
-                onClick={() => window.scroll(0,0)}
-                id={prd?.id}
-                to={`/product=${prd?.id}`}
-              >
-                <div onClick={() => window.location.reload(false)} className="homeproducts__product">
-                  <div className="products__title">
-                    <img
-                      src={`https://lion.abba.uz/${prd?.image}`}
-                      className="homeproducts__product-img"
-                    />
+            <SplideSlide
+              onClick={() => window.scrollTo({ top: 0 })}
+              key={i}
+              id={prd?.id}
+            >
+              <div>
+                <Link
+                  onClick={() => window.scrollTo({ top: 0 })}
+                  id={prd?.id}
+                  to={`/product=${prd?.id}`}
+                >
+                  <div
+                    onClick={() => window.scrollTo({ top: 0 })}
+                    className="homeproducts__product"
+                  >
+                    <div className="products__title">
+                      <img
+                        src={`https://lion.abba.uz/${prd?.image}`}
+                        className="homeproducts__product-img"
+                      />
+                    </div>
+                    {english && (
+                      <p className="homeproducts__product-name">
+                        {prd?.name_en}
+                      </p>
+                    )}
+                    {russian && (
+                      <p className="homeproducts__product-name">
+                        {prd?.name_ru}
+                      </p>
+                    )}
+                    {uzbek && (
+                      <p className="homeproducts__product-name">
+                        {prd?.name_uz}
+                      </p>
+                    )}
                   </div>
-                  {english && (
-                    <p className="homeproducts__product-name">{prd?.name_en}</p>
-                  )}
-                  {russian && (
-                    <p className="homeproducts__product-name">{prd?.name_ru}</p>
-                  )}
-                  {uzbek && (
-                    <p className="homeproducts__product-name">{prd?.name_uz}</p>
-                  )}
-                </div>
-              </Link>
+                </Link>
+              </div>
             </SplideSlide>
           ))}
         </Splide>

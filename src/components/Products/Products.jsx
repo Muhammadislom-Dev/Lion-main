@@ -4,11 +4,16 @@ import mask from "./mask.png";
 import { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
-import { Link, NavLink, useParams } from "react-router-dom";
+import { Link, NavLink, useLocation, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import "./style.css";
 
 function Products({ uzbek, english, russian }) {
+
+
+  
+ 
+
   const [product, setProduct] = useState([]);
 
   useEffect(() => {

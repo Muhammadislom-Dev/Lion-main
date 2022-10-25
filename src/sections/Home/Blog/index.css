@@ -22,10 +22,12 @@
 .splide__arrow--next{
   background: #FED6A2;
   opacity: 1;
+  right: -2em;
 }
 .splide__arrow--prev{
   background: #FED6A2;
   opacity: 1;
+  left: -2em;
 }
 
 .splide__arrow svg{
