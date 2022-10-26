@@ -37,10 +37,12 @@ export default function HomeBlog({ english, uzbek, russian }) {
                     id={prd.id}
                     className="homeproducts__product blog__item"
                   >
-                    <img
-                      src={prd.image1}
-                      className="homeproducts__product-img blog__item-img"
-                    />
+                    <div className="products__title">
+                      <img
+                        src={prd.image1}
+                        className="homeproducts__product-img blog__item-img"
+                      />
+                    </div>
                     {english && (
                       <p className="homeproducts__product-name">
                         {prd.name_en}
@@ -68,38 +70,35 @@ export default function HomeBlog({ english, uzbek, russian }) {
           options={{ perPage: 1, autoplay: true }}
         >
           {news.map((prd, i) => (
-            <SplideSlide 
-            onClick={() => window.scrollTo({top:0})}
-            key={i} id={prd.id}>
+            <SplideSlide
+              onClick={() => window.scrollTo({ top: 0 })}
+              key={i}
+              id={prd.id}
+            >
               <Link
                 onClick={() => window.scrollTo({ top: 0 })}
                 to={`/blog=${prd.id}`}
               >
-                <div  onClick={() => window.scrollTo({top:0})}
-                    key={i}
-                    id={prd.id}
-                    className="homeproducts__product blog__item"
-                  >
-                    <img
-                      src={prd.image1}
-                      className="homeproducts__product-img blog__item-img"
-                    />
-                    {english && (
-                      <p className="homeproducts__product-name">
-                        {prd.name_en}
-                      </p>
-                    )}
-                    {russian && (
-                      <p className="homeproducts__product-name">
-                        {prd.name_ru}
-                      </p>
-                    )}
-                    {uzbek && (
-                      <p className="homeproducts__product-name">
-                        {prd.name_uz}
-                      </p>
-                    )}
-                  </div>
+                <div
+                  onClick={() => window.scrollTo({ top: 0 })}
+                  key={i}
+                  id={prd.id}
+                  className="homeproducts__product blog__item"
+                >
+                  <img
+                    src={prd.image1}
+                    className="homeproducts__product-img blog__item-img"
+                  />
+                  {english && (
+                    <p className="homeproducts__product-name">{prd.name_en}</p>
+                  )}
+                  {russian && (
+                    <p className="homeproducts__product-name">{prd.name_ru}</p>
+                  )}
+                  {uzbek && (
+                    <p className="homeproducts__product-name">{prd.name_uz}</p>
+                  )}
+                </div>
               </Link>
             </SplideSlide>
           ))}

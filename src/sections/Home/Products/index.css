@@ -25,11 +25,10 @@
 }
 
 .homeproducts__product-img {
-  width: 70%;
-  object-fit: contain;
+  width: 100%;
+  object-fit: cover;
   border-radius: 9999px;
   transition: .3s;
-  /* margin-top: 90px; */
 }
 
 .homeproducts__product-name {
